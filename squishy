@@ -1,0 +1,10 @@
+Output "a.lua"
+
+Option "minify-level" "full"
+Option "uglify"       "true"
+Option "uglify-level" "full"
+
+Main   "gm8x_fix.lua"
+Module "patch_types"
+Module "patches"
+Module "util"
