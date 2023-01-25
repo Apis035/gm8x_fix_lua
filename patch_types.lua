@@ -11,6 +11,23 @@ local function enum(list)
     return enum
 end
 
+local function struct(member, filter)
+    local filter = filter or {}
+    return function (list)
+        local struct = {}
+        for i=1, #member do
+            for j=1, #list do
+                struct[j] = struct[j] or {}
+                struct[j][member[i]] =
+                        filter[i] ~= nil
+                    and filter[i](list[j][i])
+                     or list[j][i]
+            end
+        end
+        return struct
+    end
+end
+
 PatchType = enum {
     "UPX",
     "JOY",
@@ -27,25 +44,11 @@ PatchState = enum {
     "DONE"
 }
 
-function PatchByte(list) -- struct
-    local struct = {}
-    for i, member in ipairs(list) do
-        struct[i] = {}
-        struct[i].pos      =      member[1]  -- int
-        struct[i].origByte = char(member[2]) -- uint8_t
-        struct[i].newByte  = char(member[3]) -- uint8_t
-    end
-    return struct
-end
+PatchByte = struct (
+    { "pos", "origByte", "newByte" },
+    { nil, char, char }
+)
 
-function Patch(list) -- struct
-    local struct = {}
-    for i=1, #list do
-        struct[i] = {}
-        struct[i].bytes = list[i][1] -- PatchByte*
-        struct[i].name  = list[i][2] -- char*
-        struct[i].type  = list[i][3] -- PatchType
-        struct[i].state = list[i][4] -- PatchState
-    end
-    return struct
-end
+Patch = struct {
+    "bytes", "name", "type", "state"
+}
