@@ -4817,3 +4817,48 @@ resetpatch_81_141 = PatchByte {
 	{ 0x21ee9a, 0x0, 0x6 },
 	{ 0x21eea0, 0xee, 0xec }
 }
+
+PatchList = Patch {
+    { mempatch,             "Memory patch",                  PatchType.MEM },
+
+    { joypatch_70,          "GM7.0 joystick patch",          PatchType.JOY },
+    { schedpatch_70,        "GM7.0 scheduler patch",         PatchType.SCHED },
+    { inputlagpatch_70,     "GM7.0 input lag patch",         PatchType.INPUTLAG },
+    { dplaypatch_70,        "GM7.0 DirectPlay patch",        PatchType.DPLAY },
+
+    { joypatch_80,          "GM8.0 joystick patch",          PatchType.JOY },
+    { schedpatch_80,        "GM8.0 scheduler patch",         PatchType.SCHED },
+    { inputlagpatch_80,     "GM8.0 input lag patch",         PatchType.INPUTLAG },
+    { dplaypatch_80,        "GM8.0 DirectPlay patch",        PatchType.DPLAY },
+
+    { joypatch_81_65,       "GM8.1.65 joystick patch",       PatchType.JOY },
+    { schedpatch_81_65,     "GM8.1.65 scheduler patch",      PatchType.SCHED },
+    { inputlagpatch_81_65,  "GM8.1.65 input lag patch",      PatchType.INPUTLAG },
+    { dplaypatch_81_65,     "GM8.1.65 DirectPlay patch",     PatchType.DPLAY },
+
+    { joypatch_81_71,       "GM8.1.71 joystick patch",       PatchType.JOY },
+    { schedpatch_81_71,     "GM8.1.71 scheduler patch",      PatchType.SCHED },
+    { inputlagpatch_81_71,  "GM8.1.71 input lag patch",      PatchType.INPUTLAG },
+    { dplaypatch_81_71,     "GM8.1.71 DirectPlay patch",     PatchType.DPLAY },
+
+    { joypatch_81_91,       "GM8.1.91 joystick patch",       PatchType.JOY },
+    { schedpatch_81_91,     "GM8.1.91 scheduler patch",      PatchType.SCHED },
+    { inputlagpatch_81_91,  "GM8.1.91 input lag patch",      PatchType.INPUTLAG },
+    { dplaypatch_81_91,     "GM8.1.91 DirectPlay patch",     PatchType.DPLAY },
+
+    { joypatch_81_135,      "GM8.1.135 joystick patch",      PatchType.JOY },
+    { schedpatch_81_135,    "GM8.1.135 scheduler patch",     PatchType.SCHED },
+    { inputlagpatch_81_135, "GM8.1.135 input lag patch",     PatchType.INPUTLAG },
+    { dplaypatch_81_135,    "GM8.1.135 DirectPlay patch",    PatchType.DPLAY },
+
+    { joypatch_81_140,      "GM8.1.140 joystick patch",      PatchType.JOY },
+    { schedpatch_81_140,    "GM8.1.140 scheduler patch",     PatchType.SCHED },
+    { inputlagpatch_81_140, "GM8.1.140 input lag patch",     PatchType.INPUTLAG },
+    { dplaypatch_81_140,    "GM8.1.140 DirectPlay patch",    PatchType.DPLAY },
+
+    { joypatch_81_141,      "GM8.1.141 joystick patch",      PatchType.JOY },
+    { schedpatch_81_141,    "GM8.1.141 scheduler patch",     PatchType.SCHED },
+    { inputlagpatch_81_141, "GM8.1.141 input lag patch",     PatchType.INPUTLAG },
+    { resetpatch_81_141,    "GM8.1.141 display reset patch", PatchType.RESET },
+    { dplaypatch_81_141,    "GM8.1.141 DirectPlay patch",    PatchType.DPLAY }
+}
