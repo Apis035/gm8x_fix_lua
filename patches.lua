@@ -2,7 +2,7 @@ require "patch_types"
 
 -- Memory patch: literally just turn on the IMAGE_FILE_LARGE_ADDRESS_AWARE flag
 
-mempatch = PatchByte {
+local mempatch = PatchByte {
 	{ 0x116, 0x8e, 0xae }
 }
 
@@ -11,7 +11,7 @@ mempatch = PatchByte {
 -- 1. Find all calls to joystick functions (joyGetPos, joyGetPosEx, joyGetDevCapsW)
 -- 2. Replace with nops and "mov eax, 0xa5" to emulate joystick being unplugged
 
-joypatch_70 = PatchByte {
+local joypatch_70 = PatchByte {
 	{ 0x13c04b, 0x53, 0x90 },
 	{ 0x13c04c, 0x6a, 0x90 },
 	{ 0x13c04d, 0x00, 0x90 },
@@ -163,7 +163,7 @@ joypatch_70 = PatchByte {
 	{ 0x1659e8, 0xff, 0x00 }
 }
 
-joypatch_80 = PatchByte {
+local joypatch_80 = PatchByte {
 	{ 0x1399df, 0x53, 0xb8 },
 	{ 0x1399e0, 0x6a, 0xa5 },
 	{ 0x1399e2, 0xe8, 0x0 },
@@ -315,7 +315,7 @@ joypatch_80 = PatchByte {
 	{ 0x1650b9, 0xff, 0x90 }
 }
 
-joypatch_81_65 = PatchByte {
+local joypatch_81_65 = PatchByte {
 	{ 0x1cefb3, 0x53, 0xb8 },
 	{ 0x1cefb4, 0x6a, 0xa5 },
 	{ 0x1cefb6, 0xe8, 0x00 },
@@ -497,7 +497,7 @@ joypatch_81_65 = PatchByte {
 	{ 0x20b03d, 0xff, 0x90 }
 }
 
-joypatch_81_71 = PatchByte {
+local joypatch_81_71 = PatchByte {
 	{ 0x1cf0f7, 0x53, 0xb8 },
 	{ 0x1cf0f8, 0x6a, 0xa5 },
 	{ 0x1cf0fa, 0xe8, 0x0 },
@@ -613,7 +613,7 @@ joypatch_81_71 = PatchByte {
 	{ 0x20b271, 0xff, 0x90 }
 }
 
-joypatch_81_91 = PatchByte {
+local joypatch_81_91 = PatchByte {
 	    { 0x1c1fe3, 0x53, 0xb8 },
     { 0x1c1fe4, 0x6a, 0xa5 },
     { 0x1c1fe6, 0xe8, 0x0 },
@@ -765,7 +765,7 @@ joypatch_81_91 = PatchByte {
     { 0x20d1b1, 0xff, 0x90 }
 }
 
-joypatch_81_135 = PatchByte {
+local joypatch_81_135 = PatchByte {
 	{ 0x1c5eb3, 0x53, 0xb8 },
 	{ 0x1c5eb4, 0x6a, 0xa5 },
 	{ 0x1c5eb6, 0xe8, 0x00 },
@@ -881,7 +881,7 @@ joypatch_81_135 = PatchByte {
 	{ 0x2139ad, 0xff, 0x90 }
 }
 
-joypatch_81_140 = PatchByte {
+local joypatch_81_140 = PatchByte {
 	{ 0x1f6cdb, 0x53, 0xb8 },
 	{ 0x1f6cdc, 0x6a, 0xa5 },
 	{ 0x1f6cde, 0xe8, 0x0 },
@@ -997,7 +997,7 @@ joypatch_81_140 = PatchByte {
 	{ 0x244f35, 0xff, 0x90 }
 }
 
-joypatch_81_141 = PatchByte {
+local joypatch_81_141 = PatchByte {
 	{ 0x1f6ce7, 0x53, 0xb8 },
 	{ 0x1f6ce8, 0x6a, 0xa5 },
 	{ 0x1f6cea, 0xe8, 0x0 },
@@ -1154,7 +1154,7 @@ joypatch_81_141 = PatchByte {
 -- 1. Find L"DPlayX.dll"
 -- 2. Replace the 'D' with a null byte
 
-dplaypatch_70 = PatchByte {
+local dplaypatch_70 = PatchByte {
 	{ 0x147980, 'D', 0 },
 	{ 0x147981, 'P', 'P' },
 	{ 0x147982, 'l', 'l' },
@@ -1163,7 +1163,7 @@ dplaypatch_70 = PatchByte {
 	{ 0x147985, 'X', 'X' }
 }
 
-dplaypatch_80 = PatchByte {
+local dplaypatch_80 = PatchByte {
 	{ 0x187380, 'D', 0 },
 	{ 0x187381, 'P', 'P' },
 	{ 0x187382, 'l', 'l' },
@@ -1172,7 +1172,7 @@ dplaypatch_80 = PatchByte {
 	{ 0x187385, 'X', 'X' }
 }
 
-dplaypatch_81_65 = PatchByte {
+local dplaypatch_81_65 = PatchByte {
 	{ 0x23d184, 'D', 0 },
 	{ 0x23d186, 'P', 'P' },
 	{ 0x23d188, 'l', 'l' },
@@ -1181,7 +1181,7 @@ dplaypatch_81_65 = PatchByte {
 	{ 0x23d18e, 'X', 'X' }
 }
 
-dplaypatch_81_71 = PatchByte {
+local dplaypatch_81_71 = PatchByte {
 	{ 0x23d384, 'D', 0 },
 	{ 0x23d386, 'P', 'P' },
 	{ 0x23d388, 'l', 'l' },
@@ -1190,7 +1190,7 @@ dplaypatch_81_71 = PatchByte {
 	{ 0x23d38e, 'X', 'X '}
 }
 
-dplaypatch_81_91 = PatchByte {
+local dplaypatch_81_91 = PatchByte {
 	{ 0x23f1ac, 'D', 0 },
 	{ 0x23f1ae, 'P', 'P' },
 	{ 0x23f1b0, 'l', 'l' },
@@ -1199,7 +1199,7 @@ dplaypatch_81_91 = PatchByte {
 	{ 0x23f1b6, 'X', 'X '}
 }
 
-dplaypatch_81_135 = PatchByte {
+local dplaypatch_81_135 = PatchByte {
 	{ 0x2761ac, 'D', 0 },
 	{ 0x2761ae, 'P', 'P' },
 	{ 0x2761b0, 'l', 'l' },
@@ -1208,7 +1208,7 @@ dplaypatch_81_135 = PatchByte {
 	{ 0x2761b6, 'X', 'X' }
 }
 
-dplaypatch_81_140 = PatchByte {
+local dplaypatch_81_140 = PatchByte {
 	{ 0x279a10, 'D', 0 },
 	{ 0x279a12, 'P', 'P' },
 	{ 0x279a14, 'l', 'l' },
@@ -1217,7 +1217,7 @@ dplaypatch_81_140 = PatchByte {
 	{ 0x279a1a, 'X', 'X' }
 }
 
-dplaypatch_81_141 = PatchByte {
+local dplaypatch_81_141 = PatchByte {
 	{ 0x279c10, 'D', 0 },
 	{ 0x279c12, 'P', 'P' },
 	{ 0x279c14, 'l', 'l' },
@@ -1231,7 +1231,7 @@ dplaypatch_81_141 = PatchByte {
 -- 1. replace "joyGetDevCapsW" (or A, for 8.0) with "timeBeginPeriod"
 -- 2. call the JMP wrapper for timeBeginPeriod instead of writing "Loading help"
 
-schedpatch_70 = PatchByte {
+local schedpatch_70 = PatchByte {
 	{ 0x146755, 0xb8, 0x6a },
 	{ 0x146756, 0x2d, 0x01 },
 	{ 0x146757, 0x00, 0xe8 },
@@ -1259,7 +1259,7 @@ schedpatch_70 = PatchByte {
 	{ 0x18bbb0, 0x00, 0x64 }
 }
 
-schedpatch_80 = PatchByte {
+local schedpatch_80 = PatchByte {
 	{ 0x14461a, 0xb8, 0x6a },
 	{ 0x14461b, 0x2d, 0x01 },
 	{ 0x14461c, 0x00, 0xe8 },
@@ -1287,7 +1287,7 @@ schedpatch_80 = PatchByte {
 	{ 0x191e90, 0x0, 'd' }
 }
 
-schedpatch_80upx = PatchByte {
+local schedpatch_80upx = PatchByte {
 	{ 0x14461a, 0xb8, 0x6a },
 	{ 0x14461b, 0x2d, 0x01 },
 	{ 0x14461c, 0x00, 0xe8 },
@@ -1315,7 +1315,7 @@ schedpatch_80upx = PatchByte {
 	{ 0x191c5c, 0x0, 'd' }
 }
 
-schedpatch_81_65 = PatchByte {
+local schedpatch_81_65 = PatchByte {
 	{ 0x1e3fd6, 0xb8, 0x6a },
 	{ 0x1e3fd7, 0x2d, 0x01 },
 	{ 0x1e3fd8, 0x00, 0xe8 },
@@ -1343,7 +1343,7 @@ schedpatch_81_65 = PatchByte {
 	{ 0x24cb6c, 0x0, 'd' }
 }
 
-schedpatch_81_71 = PatchByte {
+local schedpatch_81_71 = PatchByte {
 	{ 0x1e4126, 0xb8, 0x6a },
 	{ 0x1e4127, 0x2d, 0x1 },
 	{ 0x1e4128, 0x0, 0xe8 },
@@ -1371,7 +1371,7 @@ schedpatch_81_71 = PatchByte {
 	{ 0x24cd6c, 0x0, 'd' }
 }
 
-schedpatch_81_91 = PatchByte {
+local schedpatch_81_91 = PatchByte {
 	{ 0x1f03b2, 0xb8, 0x6a },
 	{ 0x1f03b3, 0x2d, 0x1 },
 	{ 0x1f03b4, 0x0, 0xe8 },
@@ -1399,7 +1399,7 @@ schedpatch_81_91 = PatchByte {
 	{ 0x24ec0a, 0x0, 'd' }
 }
 
-schedpatch_81_135 = PatchByte {
+local schedpatch_81_135 = PatchByte {
 	{ 0x1f52be, 0xb8, 0x6a },
 	{ 0x1f52bf, 0x2d, 0x01 },
 	{ 0x1f52c0, 0x00, 0xe8 },
@@ -1427,7 +1427,7 @@ schedpatch_81_135 = PatchByte {
 	{ 0x288696, 0x0, 'd' }
 }
 
-schedpatch_81_140 = PatchByte {
+local schedpatch_81_140 = PatchByte {
 	{ 0x279d23, 0xb8, 0x6a },
 	{ 0x279d24, 0x20, 0x1 },
 	{ 0x279d25, 0xb1, 0xe8 },
@@ -1455,7 +1455,7 @@ schedpatch_81_140 = PatchByte {
 	{ 0x28bc96, 0x0, 'd' }
 }
 
-schedpatch_81_141 = PatchByte {
+local schedpatch_81_141 = PatchByte {
 	{ 0x279f23, 0xb8, 0x6a },
 	{ 0x279f24, 0x20, 0x01 },
 	{ 0x279f25, 0xb1, 0xe8 },
@@ -1489,7 +1489,7 @@ schedpatch_81_141 = PatchByte {
 -- 2. Swap timing with presenting
 -- 3. Fix call instructions
 
-inputlagpatch_70 = PatchByte {
+local inputlagpatch_70 = PatchByte {
 	{ 0x13fe89, 0xe8, 0xa1 },
 	{ 0x13fe8a, 0x36, 0xc4 },
 	{ 0x13fe8b, 0xbb, 0xa1 },
@@ -1820,7 +1820,7 @@ inputlagpatch_70 = PatchByte {
 	{ 0x13ffd6, 0xff, 0xdc }
 }
 
-inputlagpatch_80 = PatchByte {
+local inputlagpatch_80 = PatchByte {
 	{ 0x13dcbd, 0xe8, 0xff },
 	{ 0x13dcbe, 0xfe, 0x45 },
 	{ 0x13dcbf, 0xbc, 0xdc },
@@ -2231,7 +2231,7 @@ inputlagpatch_80 = PatchByte {
 	{ 0x13de5a, 0xff, 0xe4 }
 }
 
-inputlagpatch_81_65 = PatchByte {
+local inputlagpatch_81_65 = PatchByte {
 	{ 0x1d45eb, 0xe8, 0xa1 },
 	{ 0x1d45ec, 0x0, 0x78 },
 	{ 0x1d45ed, 0x8c, 0x9d },
@@ -2640,7 +2640,7 @@ inputlagpatch_81_65 = PatchByte {
 	{ 0x1d4788, 0xff, 0xdc }
 }
 
-inputlagpatch_81_71 = PatchByte {
+local inputlagpatch_81_71 = PatchByte {
 	{ 0x1d4733, 0xe8, 0xa1 },
 	{ 0x1d4734, 0xb8, 0x80 },
 	{ 0x1d4735, 0x8a, 0x9d },
@@ -3049,7 +3049,7 @@ inputlagpatch_81_71 = PatchByte {
 	{ 0x1d48d0, 0xff, 0xdc }
 }
 
-inputlagpatch_81_91 = PatchByte {
+local inputlagpatch_81_91 = PatchByte {
 	{ 0x1d1e6f, 0xe8, 0xa1 },
     { 0x1d1e70, 0x3c, 0x9c },
     { 0x1d1e71, 0xb5, 0xbd },
@@ -3486,7 +3486,7 @@ inputlagpatch_81_91 = PatchByte {
     { 0x1d2028, 0x0, 0xdc }
 }
 
-inputlagpatch_81_135 = PatchByte {
+local inputlagpatch_81_135 = PatchByte {
 	{ 0x1d607b, 0xe8, 0xa1 },
 	{ 0x1d607c, 0x70, 0x44 },
 	{ 0x1d607d, 0xa8, 0x4c },
@@ -3922,7 +3922,7 @@ inputlagpatch_81_135 = PatchByte {
 	{ 0x1d6234, 0x00, 0xdc }
 }
 
-inputlagpatch_81_140 = PatchByte {
+local inputlagpatch_81_140 = PatchByte {
 	{ 0x206cff, 0xe8, 0xa1 },
 	{ 0x206d00, 0x24, 0x48 },
 	{ 0x206d01, 0x98, 0x8c },
@@ -4357,7 +4357,7 @@ inputlagpatch_81_140 = PatchByte {
 	{ 0x206eb8, 0x0, 0xdc }
 }
 
-inputlagpatch_81_141 = PatchByte {
+local inputlagpatch_81_141 = PatchByte {
 	{ 0x206d13, 0xe8, 0xa1 },
 	{ 0x206d14, 0x10, 0x4c },
 	{ 0x206d15, 0x98, 0x8c },
@@ -4800,7 +4800,7 @@ inputlagpatch_81_141 = PatchByte {
 -- 3. Make it a do-while and add a null check on the condition
 -- Note: This is only relevant for 8.1.141, even 8.1.140 isn't affected by this bug.
 
-resetpatch_81_141 = PatchByte {
+local resetpatch_81_141 = PatchByte {
 	{ 0x21ee8d, 0xeb, 0xe8 },
 	{ 0x21ee8e, 0x5, 0x2a },
 	{ 0x21ee8f, 0xe8, 0xbb },
@@ -4818,7 +4818,7 @@ resetpatch_81_141 = PatchByte {
 	{ 0x21eea0, 0xee, 0xec }
 }
 
-PatchList = Patch {
+return Patch {
     { mempatch,             "Memory patch",                  PatchType.MEM },
 
     { joypatch_70,          "GM7.0 joystick patch",          PatchType.JOY },

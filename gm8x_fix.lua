@@ -1,8 +1,9 @@
 --[[ Requires ]]--
 
 require "patch_types"
-require "patches"
 require "util"
+
+local patchList = require "patches"
 
 --[[ Split functions ]]--
 
@@ -109,7 +110,7 @@ end
 
 local hasAppliedPatch, canApplyPatch = false, false
 
-for _,patch in pairs(PatchList) do
+for _,patch in pairs(patchList) do
     patch.state = can_patch(file, patch.bytes)
 
     if patchDisabled[patch.type] and patch.state == PatchState.ABLE then
@@ -133,7 +134,7 @@ end
 -- Patch has been applied
 if hasAppliedPatch then
     print "Patches already applied:"
-    for _,patch in pairs(PatchList) do
+    for _,patch in pairs(patchList) do
         if patch.state == PatchState.DONE then
             print(" * %s", patch.name)
         end
@@ -143,7 +144,7 @@ end
 -- Patch can be applied
 if canApplyPatch then
     print "Patches that can be applied:"
-    for _,patch in pairs(PatchList) do
+    for _,patch in pairs(patchList) do
         if patch.state == PatchState.ABLE then
             print(" * %s", patch.name)
         end
@@ -193,7 +194,7 @@ end
 file = io.open(filename, "r+b")
 local joyPatched = false
 
-for _,patch in ipairs(PatchList) do
+for _,patch in ipairs(patchList) do
     if patch.type == PatchType.JOY and patch.state == PatchState.DONE then
         joyPatched = true
     end
