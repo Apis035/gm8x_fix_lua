@@ -34,10 +34,26 @@ function patch_exe(file, patches)
     end
 end
 
+local function printHelp()
+    print([[
+Usage: %s file [options]
+        or drag the game file into the patcher.
+
+  -h    print this help
+  -nb   disable backup
+  -ni   disable input lag patch
+  -nj   disable joystick patch
+  -ns   disable scheduler patch
+  -nr   disable display reset patch
+  -nm   disable memory patch
+  -nd   disable DirectPlay Patch]],
+        arg[0])
+end
+
 --[[ Main program ]]--
 
-local filename, showHelp, silent, makeBackup =
-      nil,      false,    false,  true
+local filename, silent, makeBackup =
+      nil,      false,  true
 
 local patchDisabled = {}
 
@@ -45,7 +61,7 @@ local patchDisabled = {}
 for i=1, #args do
     local arg = args[i]
 
-        if arg == "-h"  then showHelp   = true break
+        if arg == "-h"  then printHelp() exit()
     elseif arg == "-s"  then silent     = true
     elseif arg == "-nb" then makeBackup = false
     elseif arg == "-nj" then patchDisabled[PatchType.JOY]      = true
@@ -75,23 +91,9 @@ if allDisabled then
 end
 
 -- No file specified
-if not showHelp and filename == nil then
+if filename == nil then
     print "No file is specified."
-    showHelp = true
-end
-
-if showHelp then
-    print("Usage: %s file [options]", arg[0])
-    print "       or drag the Game Maker game file into the patcher."
-    print ""
-    print "  -h 	show this help"
-    print "  -nb	disable backup"
-    print "  -ni	disable input lag patch"
-    print "  -nj	disable joystick patch"
-    print "  -ns	disable scheduler patch"
-    print "  -nr	disable display reset patch"
-    print "  -nm	disable memory patch"
-    print "  -nd	disable DirectPlay patch"
+    printHelp()
     exit()
 end
 
