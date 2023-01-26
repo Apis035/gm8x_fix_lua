@@ -169,26 +169,17 @@ if makeBackup then
     wait()
 
     local backupFilename  = filename .. '.bak'
-    local overwriteBackup = false
-    local doBackup        = false
+    local backupFileExist = io.open(backupFilename, "rb")
+    local doBackup        = backupFileExist == nil
 
-    local checkFile = io.open(backupFilename, "rb")
-    local prevBackupExist = checkFile ~= nil
+    if backupFileExist then
+        backupFileExist:close()
 
-    if prevBackupExist then
-        checkFile:close()
         print("Previous backup file exist on %s", backupFilename)
-        overwriteBackup = prompt "Do you want to overwrite backup file?"
-    end
 
-    if prevBackupExist then
-        if overwriteBackup then
-            doBackup = true
-        elseif not prompt "Continue applying patches without backup?" then
-            exit()
-        end
-    else
-        doBackup = true
+        doBackup = prompt "Do you want to overwrite backup file?"     -- If yes return true
+            or not prompt "Continue applying patches without backup?" -- If yes return false
+               and exit()                                             -- No backup and no continue
     end
 
     if doBackup then
