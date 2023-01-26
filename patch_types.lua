@@ -11,8 +11,10 @@ local function enum(list)
     return enum
 end
 
-local function struct(member, filter)
-    local filter = filter or {}
+local function struct(t)
+    local member = t[1]
+    local filter = t[2] or {}
+
     return function (list)
         local struct = {}
         for i=1, #member do
@@ -21,7 +23,7 @@ local function struct(member, filter)
                 struct[j][member[i]] =
                         filter[i] ~= nil
                     and filter[i](list[j][i])
-                     or list[j][i]
+                    or  list[j][i]
             end
         end
         return struct
@@ -44,11 +46,11 @@ PatchState = enum {
     "DONE"
 }
 
-PatchByte = struct (
+PatchByte = struct {
     { "pos", "origByte", "newByte" },
     { nil, char, char }
-)
+}
 
 Patch = struct {
-    "bytes", "name", "type", "state"
+    { "bytes", "name", "type", "state" }
 }
