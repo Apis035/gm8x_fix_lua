@@ -109,7 +109,7 @@ if file == nil then
 end
 
 -- No MZ header
-if file:read(1) ~= 'M' or file:read(1) ~= 'Z' then
+if file:read(2) ~= "MZ" then
     print "This is not an executable file."
     exit()
 end
