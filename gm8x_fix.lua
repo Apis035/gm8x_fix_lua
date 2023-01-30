@@ -5,10 +5,6 @@ require "util"
 
 local patchList = require "patches"
 
---[[ Command line parameter ]]--
-
-local args = {...}
-
 --[[ Split functions ]]--
 
 function can_patch(file, patches)
@@ -58,8 +54,8 @@ local filename, silent, makeBackup =
 local patchDisabled = {}
 
 -- Parse arguments
-for i=1, #args do
-    local arg = args[i]
+for i=1, #arg do
+    local arg = arg[i]
 
         if arg == "-h"  then printHelp() exit()
     elseif arg == "-s"  then silent     = true
