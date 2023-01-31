@@ -1,62 +1,62 @@
 #!/usr/bin/env lua
-local base_char,keywords=128,{"and","break","do","else","elseif","end","false","for","function","if","in","local","nil","not","or","repeat","return","then","true","until","while","write","base_path","\"TK_OP\"","\"TK_STRING\"","require","locallist","tostring","\"TK_KEYWORD\"","out_fn","string","gsub","\"TK_NAME\"","ipairs","match","\"TK_COMMENT\"","\"TK_LSTRING\"","package","\"<name>\"","\"TK_EOL\"","path","\"VGLOBAL\"","name","close","print","format","\"TK_LCOMMENT\"","\"<string>\"","minify_level","\"\\n\"","\"whitespace\"","\"([\\r\\n])([\\r\\n]?)\"","open","\"TK_EOS\"","\"function\"","xcount","\"comments\"","\"TK_SPACE\"","\"opt-comments\"","\"=\"","\"\"","xref","error","exit","is_vararg","very_verbose","\"^%-%-%[=*%[\"","\"VVOID\"","optimize","prev","\"[\"","\"emptylines\"","\"string\"","\"VLOCAL\"","\"end\"","newname","seminfo","skip","executable","\".uglified\"","preload","very_quiet","\"TK_NUMBER\"","sub","\"<number>\"","value","\"unfinished string\"","\"package.preload['\"","char","gmatch","read","module","\",\"","\"]\"","\"\\\\\"","\"...\"","\"numbers\"","tonumber","\"opt-whitespace\"","'cannot open \"'","\"opt-emptylines\"","\"*a\"","resolve_module","minify_string","\"VUPVAL\"","count","score","table","find","decl","\".\"","\"locals\"","init","___fetch_url","squishy_file","\"opt-strings\"","minify_file","\"(\"","os","\"opt-numbers\"","tok","uglify_file","\"[^;]+\"","isbreakable","\"opt-entropy\"","TK_LCOMMENT","rem",}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
-	function (c) return keywords[c:byte()-base_char]; end) end return assert(loadstring(prettify[===[¶.—['optlex']=(â(...)å a=_G
-å u=ö…‹"optlex"å t=u.£
-å e=u.‘
-å d=u.Ì
-å f=u.rep
-å s
-ø=a.ø
-warn={}å i,o,c
-å w={TK_KEYWORD=ì,TK_NAME=ì,TK_NUMBER=ì,TK_STRING=ì,TK_LSTRING=ì,TK_OP=ì,TK_EOS=ì,}å T={TK_COMMENT=ì,˛=ì,TK_EOL=ì,TK_SPACE=ì,}å r
-å â K(e)å n=i[e-1]ä e<=1 è n==®í
+local base_char,keywords=128,{"and","break","do","else","elseif","end","false","for","function","if","in","local","nil","not","or","repeat","return","then","true","until","while","write","base_path","\"TK_OP\"","\"TK_STRING\"","require","locallist","tostring","ipairs","\"TK_KEYWORD\"","gsub","out_fn","string","path","\"TK_NAME\"","match","\"TK_LSTRING\"","\"TK_COMMENT\"","package","close","\"TK_EOL\"","\"<name>\"","name","\"VGLOBAL\"","\"\\n\"","print","format","\"TK_LCOMMENT\"","\"<string>\"","minify_level","\"whitespace\"","open","\"([\\r\\n])([\\r\\n]?)\"","exit","\"TK_EOS\"","\"comments\"","xcount","\"\"","\"TK_SPACE\"","\"function\"","error","\"opt-comments\"","is_vararg","\"=\"","xref","very_verbose","\"VVOID\"","\"^%-%-%[=*%[\"","prev","optimize","\"[\"","\"emptylines\"","\"string\"","\"VLOCAL\"","\".uglified\"","skip","preload","newname","executable","very_quiet","\"end\"","seminfo","\"TK_NUMBER\"","sub","list_missing_files","\"<number>\"","\"package.preload['\"","\"unfinished string\"","value","read","module","gmatch","char","\"]\"","\",\"","\"\\\\\"","\"...\"","tonumber","\"numbers\"","\"opt-whitespace\"","\"opt-emptylines\"","'cannot open \"'","resolve_module","\"*a\"","\"VUPVAL\"","minify_string","score","\".\"","count","decl","find","\"locals\"","module_compat","init","table","os","squishy_file","io","___fetch_url","rem","\"%S+\"","\"opt-entropy\"","TK_LCOMMENT","tok","\"opt-strings\"","\"opt-numbers\"","\"[^;]+\"",}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
+	function (c) return keywords[c:byte()-base_char]; end) end return setfenv(assert(loadstring(prettify[===[ß.Õ['optlex']=(â(...)å a=_G
+å s=ö…€"optlex"å t=s.§
+å e=s.‘
+å c=s.Ô
+å f=s.rep
+å u
+Ω=a.Ω
+warn={}å i,o,d
+å g={TK_KEYWORD=ì,TK_NAME=ì,TK_NUMBER=ì,TK_STRING=ì,TK_LSTRING=ì,TK_OP=ì,TK_EOS=ì,}å b={TK_COMMENT=ì,˚=ì,TK_EOL=ì,TK_SPACE=ì,}å r
+å â m(e)å n=i[e-1]ä e<=1 è n==©í
 ë ì
-Ö n==Ωí
-ë K(e-1)Ü
+Ö n==∫í
+ë m(e-1)Ü
 ë á
 Ü
-å â b(e)å n=i[e+1]ä e>=#i è n==®è n==∂í
+å â _(n)å e=i[n+1]ä n>=#i è e==©è e==∑í
 ë ì
-Ö n==Ωí
-ë b(e+1)Ü
+Ö e==∫í
+ë _(n+1)Ü
 ë á
 Ü
-å â L(l)å n=#t(l,√)å l=e(l,n+1,-(n-1))å e,n=1,0
+å â q(l)å n=#t(l,ƒ)å l=e(l,n+1,-(n-1))å e,n=1,0
 ï ì É
-å o,i,t,l=d(l,¥,e)ä é o í Ç Ü
-e=o+1
+å l,i,t,o=c(l,µ,e)ä é l í Ç Ü
+e=l+1
 n=n+1
-ä#l>0 Å t~=l í
+ä#o>0 Å t~=o í
 e=e+1
 Ü
 Ü
 ë n
 Ü
-å â k(r,a)å l=t
-å n,e=i[r],i[a]ä n==ôè n==•è
+å â E(a,r)å l=t
+å n,e=i[a],i[r]ä n==ôè n==•è
 e==ôè e==•í
-ëΩÖ n==òè e==òí
-ä(n==òÅ(e==ùè e==°))è(e==òÅ(n==ùè n==°))í
-ëΩÜ
+ë∫Ö n==òè e==òí
+ä(n==òÅ(e==ûè e==£))è(e==òÅ(n==ûè n==£))í
+ë∫Ü
 ä n==òÅ e==òí
-å n,e=o[r],o[a]ä(l(n,"^%.%.?$")Å l(e,"^%."))è(l(n,"^[~=<>]$")Å e==º)è(n==«Å(e==«è e==º))í
+å n,e=o[a],o[r]ä(l(n,"^%.%.?$")Å l(e,"^%."))è(l(n,"^[~=<>]$")Å e==¿)è(n==«Å(e==«è e==¿))í
 ë" "Ü
-ëΩÜ
-å n=o[r]ä e==òí n=o[a]Ü
+ë∫Ü
+å n=o[a]ä e==òí n=o[r]Ü
 ä l(n,"^%.%.?%.?$")í
 ë" "Ü
-ëΩÑ
+ë∫Ñ
 ë" "Ü
 Ü
-å â O()å t,a,l={},{},{}å e=1
+å â k()å a,t,l={},{},{}å e=1
 à n=1,#i É
-å i=i[n]ä i~=Ωí
-t[e],a[e],l[e]=i,o[n],c[n]e=e+1
+å i=i[n]ä i~=∫í
+a[e],t[e],l[e]=i,o[n],d[n]e=e+1
 Ü
 Ü
-i,o,c=t,a,l
+i,o,d=a,t,l
 Ü
-å â q(d)å n=o[d]å n=n
+å â M(c)å n=o[c]å n=n
 å i
 ä t(n,"^0[xX]")í
 å e=a.ú(a.‚(n))ä#e<=#n í
@@ -74,15 +74,15 @@ i=n
 Ñ
 i="0"Ü
 Ö é t(n,"[eE]")í
-å l,n=t(n,"^(%d*)%.(%d+)$")ä l==Ωí l=0 Ü
+å l,n=t(n,"^(%d*)%.(%d+)$")ä l==∫í l=0 Ü
 ä n+0==0 Å l==0 í
 i="0"Ñ
 å o=#t(n,"0*$")ä o>0 í
 n=e(n,1,#n-o)Ü
 ä l+0>0 í
-i=l..Ô..n
+i=l..Ï..n
 Ñ
-i=Ô..n
+i=Ï..n
 å l=#t(n,"^0*")å l=#n-l
 å o=a.ú(#n)ä l+2+#o<1+#n í
 i=e(n,-l).."e-"..o
@@ -90,9 +90,9 @@ i=e(n,-l).."e-"..o
 Ü
 Ü
 Ñ
-å n,l=t(n,"^([^eE]+)[eE]([%+%-]?%d+)$")l=a.‚(l)å r,o=t(n,"^(%d*)%.(%d*)$")ä r í
-l=l-#o
-n=r..o
+å n,l=t(n,"^([^eE]+)[eE]([%+%-]?%d+)$")l=a.‚(l)å o,r=t(n,"^(%d*)%.(%d*)$")ä o í
+l=l-#r
+n=o..r
 Ü
 ä n+0==0 í
 i="0"Ñ
@@ -104,98 +104,98 @@ i=n
 Ö l>0 Å(l<=1+#t)í
 i=n..f("0",l)Ö l<0 Å(l>=-#n)í
 o=#n+l
-i=e(n,1,o)..Ô..e(n,o+1)Ö l<0 Å(#t>=-l-#n)í
+i=e(n,1,o)..Ï..e(n,o+1)Ö l<0 Å(#t>=-l-#n)í
 o=-l-#n
-i=Ô..f("0",o)..n
+i=Ï..f("0",o)..n
 Ñ
 i=n.."e"..l
 Ü
 Ü
 Ü
-ä i Å i~=o[d]í
+ä i Å i~=o[c]í
 ä r í
-s("<number> (line "..c[d]..") "..o[d].." -> "..i)r=r+1
+u("<number> (line "..d[c]..") "..o[c].." -> "..i)r=r+1
 Ü
-o[d]=i
+o[c]=i
 Ü
 Ü
-å â y(f)å n=o[f]å i=e(n,1,1)å p=(i=="'")Å'"'è"'"å n=e(n,2,-2)å l=1
-å h,a=0,0
+å â O(h)å n=o[h]å a=e(n,1,1)å p=(a=="'")Å'"'è"'"å n=e(n,2,-2)å l=1
+å f,i=0,0
 ï l<=#n É
-å f=e(n,l,l)ä f==ﬂí
+å u=e(n,l,l)ä u==‡í
 å o=l+1
-å c=e(n,o,o)å r=d("abfnrtv\\\n\r\"'0123456789",c,1,ì)ä é r í
+å d=e(n,o,o)å r=c("abfnrtv\\\n\r\"'0123456789",d,1,ì)ä é r í
 n=e(n,1,l-1)..e(n,o)l=l+1
 Ö r<=8 í
 l=l+2
 Ö r<=10 í
 å t=e(n,o,o+1)ä t=="\r\n"è t=="\n\r"í
-n=e(n,1,l)..≤..e(n,o+2)Ö r==10 í
-n=e(n,1,l)..≤..e(n,o+1)Ü
+n=e(n,1,l)..≠..e(n,o+2)Ö r==10 í
+n=e(n,1,l)..≠..e(n,o+1)Ü
 l=l+2
 Ö r<=12 í
-ä c==i í
-h=h+1
+ä d==a í
+f=f+1
 l=l+2
 Ñ
-a=a+1
+i=i+1
 n=e(n,1,l-1)..e(n,o)l=l+1
 Ü
 Ñ
 å t=t(n,"^(%d%d?%d?)",o)o=l+1+#t
-å c=t+0
-å r=u.Ÿ(c)å d=d("\a\b\f\n\r\t\v",r,1,ì)ä d í
-t=ﬂ..e("abfnrtv",d,d)Ö c<32 í
-t=ﬂ..c
-Ö r==i í
-t=ﬂ..r
-h=h+1
-Ö r==ﬂí
+å d=t+0
+å r=s.›(d)å c=c("\a\b\f\n\r\t\v",r,1,ì)ä c í
+t=‡..e("abfnrtv",c,c)Ö d<32 í
+t=‡..d
+Ö r==a í
+t=‡..r
+f=f+1
+Ö r==‡í
 t="\\\\"Ñ
 t=r
 ä r==p í
-a=a+1
+i=i+1
 Ü
 Ü
 n=e(n,1,l-1)..t..e(n,o)l=l+#t
 Ü
 Ñ
 l=l+1
-ä f==p í
-a=a+1
+ä u==p í
+i=i+1
 Ü
 Ü
 Ü
-ä h>a í
+ä f>i í
 l=1
 ï l<=#n É
-å o,a,t=d(n,"(['\"])",l)ä é o í Ç Ü
-ä t==i í
+å o,i,t=c(n,"(['\"])",l)ä é o í Ç Ü
+ä t==a í
 n=e(n,1,o-2)..e(n,o)l=o
 Ñ
-n=e(n,1,o-1)..ﬂ..e(n,o)l=o+2
+n=e(n,1,o-1)..‡..e(n,o)l=o+2
 Ü
 Ü
-i=p
+a=p
 Ü
-n=i..n..i
-ä n~=o[f]í
+n=a..n..a
+ä n~=o[h]í
 ä r í
-s("<string> (line "..c[f]..") "..o[f].." -> "..n)r=r+1
+u("<string> (line "..d[h]..") "..o[h].." -> "..n)r=r+1
 Ü
-o[f]=n
+o[h]=n
 Ü
 Ü
-å â v(a)å n=o[a]å r=t(n,"^%[=*%[")å l=#r
-å s=e(n,-l,-1)å u=e(n,l+1,-(l+1))å i=Ωå n=1
+å â v(s)å n=o[s]å a=t(n,"^%[=*%[")å l=#a
+å u=e(n,-l,-1)å r=e(n,l+1,-(l+1))å i=∫å n=1
 ï ì É
-å l,o,d,r=d(u,¥,n)å o
+å l,o,c,a=c(r,µ,n)å o
 ä é l í
-o=e(u,n)Ö l>=n í
-o=e(u,n,l-1)Ü
-ä o~=Ωí
+o=e(r,n)Ö l>=n í
+o=e(r,n,l-1)Ü
+ä o~=∫í
 ä t(o,"%s+$")í
-warn.lstring="trailing whitespace in long string near line "..c[a]Ü
+warn.lstring="trailing whitespace in long string near line "..d[s]Ü
 i=i..o
 Ü
 ä é l í
@@ -203,32 +203,32 @@ i=i..o
 Ü
 n=l+1
 ä l í
-ä#r>0 Å d~=r í
+ä#a>0 Å c~=a í
 n=n+1
 Ü
 ä é(n==1 Å n==l)í
-i=i..≤Ü
+i=i..≠Ü
 Ü
 Ü
 ä l>=3 í
 å e,n=l-1
 ï e>=2 É
-å l="%]"..f(º,e-2).."%]"ä é t(i,l)í n=e Ü
+å l="%]"..f(¿,e-2).."%]"ä é t(i,l)í n=e Ü
 e=e-1
 Ü
 ä n í
-l=f(º,n-2)r,s=«..l..«,ﬁ..l..ﬁÜ
+l=f(¿,n-2)a,u=«..l..«,ﬁ..l..ﬁÜ
 Ü
-o[a]=r..i..s
+o[s]=a..i..u
 Ü
-å â _(c)å l=o[c]å r=t(l,√)å n=#r
-å u=e(l,-n,-1)å a=e(l,n+1,-(n-1))å i=Ωå l=1
+å â K(s)å l=o[s]å r=t(l,ƒ)å n=#r
+å d=e(l,-n,-1)å a=e(l,n+1,-(n-1))å i=∫å l=1
 ï ì É
-å o,n,c,r=d(a,¥,l)å n
+å o,n,c,r=c(a,µ,l)å n
 ä é o í
 n=e(a,l)Ö o>=l í
 n=e(a,l,o-1)Ü
-ä n~=Ωí
+ä n~=∫í
 å l=t(n,"%s*$")ä#l>0 í n=e(n,1,-(l+1))Ü
 i=i..n
 Ü
@@ -240,157 +240,157 @@ l=o+1
 ä#r>0 Å c~=r í
 l=l+1
 Ü
-i=i..≤Ü
+i=i..≠Ü
 Ü
 n=n-2
 ä n>=3 í
 å e,l=n-1
 ï e>=2 É
-å n="%]"..f(º,e-2).."%]"ä é t(i,n)í l=e Ü
+å n="%]"..f(¿,e-2).."%]"ä é t(i,n)í l=e Ü
 e=e-1
 Ü
 ä l í
-n=f(º,l-2)r,u="--["..n..«,ﬁ..n..ﬁÜ
+n=f(¿,l-2)r,d="--["..n..«,ﬁ..n..ﬁÜ
 Ü
-o[c]=r..i..u
+o[s]=r..i..d
 Ü
-å â m(i)å n=o[i]å l=t(n,"%s*$")ä#l>0 í
-n=e(n,1,-(l+1))Ü
-o[i]=n
+å â T(l)å n=o[l]å t=t(n,"%s*$")ä#t>0 í
+n=e(n,1,-(t+1))Ü
+o[l]=n
 Ü
-å â E(o,n)ä é o í ë á Ü
-å l=t(n,√)å l=#l
-å t=e(n,-l,-1)å e=e(n,l+1,-(l-1))ä d(e,o,1,ì)í
+å â y(o,l)ä é o í ë á Ü
+å n=t(l,ƒ)å n=#n
+å t=e(l,-n,-1)å e=e(l,n+1,-(n-1))ä c(e,o,1,ì)í
 ë ì
 Ü
 Ü
-â ≈(n,d,l,t)å p=n[ª]å u=n[„]å h=n[Â]å g=n["opt-eols"]å x=n[Ù]å N=n[¯]å M=n.KEEP
+â ∆(n,c,l,t)å p=n[æ]å s=n[‰]å h=n[Â]å w=n["opt-eols"]å L=n[˝]å N=n[˛]å x=n.KEEP
 r=n.DETAILS Å 0
-s=s è a.≠
-ä g í
+u=u è a.Æ
+ä w í
 p=ì
-u=ì
+s=ì
 h=ì
 Ü
-i,o,c=d,l,t
+i,o,d=c,l,t
 å n=1
-å l,d
+å l,c
 å a
 å â t(t,l,e)e=e è n
-i[e]=t èΩo[e]=l èΩÜ
+i[e]=t è∫o[e]=l è∫Ü
 ï ì É
-l,d=i[n],o[n]å r=K(n)ä r í a=ç Ü
-ä l==∂í
+l,c=i[n],o[n]å r=m(n)ä r í a=ç Ü
+ä l==∑í
 Ç
-Ö l==ùè
-l==°è
+Ö l==ûè
+l==£è
 l==òí
 a=n
 Ö l==”í
 ä N í
-q(n)Ü
+M(n)Ü
 a=n
 Ö l==ôè
 l==•í
-ä x í
+ä L í
 ä l==ôí
-y(n)Ñ
+O(n)Ñ
 v(n)Ü
 Ü
 a=n
-Ö l==§í
+Ö l==¶í
 ä p í
-ä n==1 Å e(d,1,1)=="#"í
-m(n)Ñ
+ä n==1 Å e(c,1,1)=="#"í
+T(n)Ñ
 t()Ü
-Ö u í
-m(n)Ü
-Ö l==Øí
-ä E(M,d)í
-ä u í
-_(n)Ü
+Ö s í
+T(n)Ü
+Ö l==∞í
+ä y(x,c)í
+ä s í
+K(n)Ü
 a=n
 Ö p í
-å e=L(d)ä T[i[n+1]]í
-t()l=ΩÑ
-t(∫," ")Ü
+å e=q(c)ä b[i[n+1]]í
+t()l=∫Ñ
+t(ª," ")Ü
 ä é h Å e>0 í
-t(®,f(≤,e))Ü
-ä u Å l~=Ωí
+t(©,f(≠,e))Ü
+ä s Å l~=∫í
 n=n-1
 Ü
 Ñ
-ä u í
-_(n)Ü
+ä s í
+K(n)Ü
 a=n
 Ü
-Ö l==®í
+Ö l==©í
 ä r Å h í
-t()Ö d=="\r\n"è d=="\n\r"í
-t(®,≤)Ü
-Ö l==∫í
-ä u í
-ä r è b(n)í
+t()Ö c=="\r\n"è c=="\n\r"í
+t(©,≠)Ü
+Ö l==ªí
+ä s í
+ä r è _(n)í
 t()Ñ
-å l=i[a]ä l==Øí
+å l=i[a]ä l==∞í
 t()Ñ
-å e=i[n+1]ä T[e]í
-ä(e==§è e==Ø)Å
+å e=i[n+1]ä b[e]í
+ä(e==¶è e==∞)Å
 l==òÅ o[a]=="-"í
 Ñ
 t()Ü
 Ñ
-å e=k(a,n+1)ä e==Ωí
+å e=E(a,n+1)ä e==∫í
 t()Ñ
-t(∫," ")Ü
+t(ª," ")Ü
 Ü
 Ü
 Ü
 Ü
 Ñ
-ø("unidentified token encountered")Ü
+Ω("unidentified token encountered")Ü
 n=n+1
 Ü
-O()ä g í
+k()ä w í
 n=1
-ä i[1]==§í
+ä i[1]==¶í
 n=3
 Ü
 ï ì É
-l,d=i[n],o[n]ä l==∂í
+l,c=i[n],o[n]ä l==∑í
 Ç
-Ö l==®í
-å l,e=i[n-1],i[n+1]ä w[l]Å w[e]í
-å e=k(n-1,n+1)ä e==Ωí
+Ö l==©í
+å e,l=i[n-1],i[n+1]ä g[e]Å g[l]í
+å e=E(n-1,n+1)ä e==∫í
 t()Ü
 Ü
 Ü
 n=n+1
 Ü
-O()Ü
-ä r Å r>0 í s()Ü
-ë i,o,c
+k()Ü
+ä r Å r>0 í u()Ü
+ë i,o,d
 Ü
-Ü)¶.—['optparser']=(â(...)å e=_G
-å l=ö…å s=ö"table"‹"optparser"å t="etaoinshrdlucmfwypvbgkqjxz_ETAOINSHRDLUCMFWYPVBGKQJXZ"å c="etaoinshrdlucmfwypvbgkqjxz_0123456789ETAOINSHRDLUCMFWYPVBGKQJXZ"å m={}à e ã l.⁄([[
+ë _M;Ü)ß.Õ['optparser']=(â(...)å e=_G
+å l=ö…å f=ö"table"€"optparser"å t="etaoinshrdlucmfwypvbgkqjxz_ETAOINSHRDLUCMFWYPVBGKQJXZ"å d="etaoinshrdlucmfwypvbgkqjxz_0123456789ETAOINSHRDLUCMFWYPVBGKQJXZ"å _={}à e ã l.‹([[
 and break do else elseif end false for function if in
 local nil not or repeat return then true until while
-self]],"%S+")É
-m[e]=ì
+self _ENV]],˘)É
+_[e]=ì
 Ü
-å d,u,h,o,p,g,f,r
-å â _(e)å o={}à i=1,#e É
+å c,s,u,o,h,b,r,i
+å â p(e)å o={}à i=1,#e É
 å n=e[i]å t=n.´
 ä é o[t]í
 o[t]={Ó=0,token=0,size=0,}Ü
 å e=o[t]e.Ó=e.Ó+1
-å o=n.æ
+å o=n.¡
 å l=#o
 e.token=e.token+l
 e.size=e.size+l*#t
 ä n.Ó í
 n.id=i
-n.∏=l
+n.π=l
 ä l>1 í
 n.first=o[2]n.last=o[l]Ü
 Ñ
@@ -399,137 +399,137 @@ e.id=i
 Ü
 ë o
 Ü
-å â b(e)å i=l.byte
-å a=l.Ÿ
-å n={TK_KEYWORD=ì,TK_NAME=ì,TK_NUMBER=ì,TK_STRING=ì,TK_LSTRING=ì,}ä é e[ª]í
-n.TK_COMMENT=ì
-n.˛=ì
+å â g(e)å i=l.byte
+å a=l.›
+å l={TK_KEYWORD=ì,TK_NAME=ì,TK_NUMBER=ì,TK_STRING=ì,TK_LSTRING=ì,}ä é e[æ]í
+l.TK_COMMENT=ì
+l.˚=ì
 Ü
-å l={}à e=1,#d É
-l[e]=u[e]Ü
+å n={}à e=1,#c É
+n[e]=s[e]Ü
 à e=1,#o É
-å e=o[e]å n=e.æ
-à e=1,e.∏ É
-å e=n[e]l[e]=ΩÜ
+å e=o[e]å l=e.¡
+à e=1,e.π É
+å e=l[e]n[e]=∫Ü
 Ü
 å e={}à n=0,255 É e[n]=0 Ü
-à o=1,#d É
-å o,l=d[o],l[o]ä n[o]í
-à n=1,#l É
-å n=i(l,n)e[n]=e[n]+1
+à o=1,#c É
+å o,n=c[o],n[o]ä l[o]í
+à l=1,#n É
+å n=i(n,l)e[n]=e[n]+1
 Ü
 Ü
 Ü
-å â l(l)å n={}à o=1,#l É
+å â o(l)å n={}à o=1,#l É
 å l=i(l,o)n[o]={c=l,freq=e[l],}Ü
-s.sort(n,â(n,e)ë n.freq>e.freq
-Ü)å l={}à e=1,#n É
-l[e]=a(n[e].c)Ü
-ë s.concat(l)Ü
-t=l(t)c=l(c)Ü
-å â T()å n
-å a,r=#t,#c
-å e=f
+f.sort(n,â(n,e)ë n.freq>e.freq
+Ü)å e={}à l=1,#n É
+e[l]=a(n[l].c)Ü
+ë f.concat(e)Ü
+t=o(t)d=o(d)Ü
+å â m()å n
+å a,c=#t,#d
+å e=r
 ä e<a í
 e=e+1
 n=l.‘(t,e,e)Ñ
 å o,i=a,1
 ê
 e=e-o
-o=o*r
+o=o*c
 i=i+1
 î o>e
 å o=e%a
 e=(e-o)/a
 o=o+1
 n=l.‘(t,o,o)ï i>1 É
-å o=e%r
-e=(e-o)/r
+å o=e%c
+e=(e-o)/c
 o=o+1
-n=n..l.‘(c,o,o)i=i-1
+n=n..l.‘(d,o,o)i=i-1
 Ü
 Ü
-f=f+1
-ë n,p[n]~=ç
+r=r+1
+ë n,h[n]~=ç
 Ü
-â ≈(e,t,l,i,n)d,u,h,o=t,l,i,n
-f=0
-r={}p=_(h)g=_(o)ä e[˝]í
-b(e)Ü
+â ∆(e,n,l,a,t)c,s,u,o=n,l,a,t
+r=0
+i={}h=p(u)b=p(o)ä e[˙]í
+g(e)Ü
 å e={}à n=1,#o É
 e[n]=o[n]Ü
-s.sort(e,â(n,e)ë n.∏>e.∏
+f.sort(e,â(n,e)ë n.π>e.π
 Ü)å l,n,c={},1,á
 à o=1,#e É
-å e=e[o]ä é e.isself í
+å e=e[o]ä é e.preserve í
 l[n]=e
 n=n+1
-Ñ
+Ö e.´=="self"í
 c=ì
 Ü
 Ü
 e=l
-å a=#e
-ï a>0 É
-å i,l
+å r=#e
+ï r>0 É
+å a,l
 ê
-i,l=T()î é m[i]r[#r+1]=i
-å n=a
+a,l=m()î é _[a]i[#i+1]=a
+å n=r
 ä l í
-å t=h[p[i].id].æ
-å r=#t
-à l=1,a É
-å l=e[l]å i,e=l.act,l.ˇ
+å t=u[h[a].id].¡
+å i=#t
+à l=1,r É
+å l=e[l]å a,e=l.act,l.¯
 ï e<0 É
-e=o[-e].ˇ
+e=o[-e].¯
 Ü
 å o
-à n=1,r É
-å n=t[n]ä n>=i Å n<=e í o=ì Ü
+à n=1,i É
+å n=t[n]ä n>=a Å n<=e í o=ì Ü
 Ü
 ä o í
-l.Œ=ì
+l.Ã=ì
 n=n-1
 Ü
 Ü
 Ü
 ï n>0 É
 å l=1
-ï e[l].Œ É
+ï e[l].Ã É
 l=l+1
 Ü
 n=n-1
 å t=e[l]l=l+1
-t.Ã=i
-t.Œ=ì
+t.Œ=a
+t.Ã=ì
 t.done=ì
-å a,r=t.first,t.last
-å c=t.æ
+å a,c=t.first,t.last
+å r=t.¡
 ä a Å n>0 í
 å i=n
 ï i>0 É
-ï e[l].Œ É
+ï e[l].Ã É
 l=l+1
 Ü
 i=i-1
 å e=e[l]l=l+1
-å i,l=e.act,e.ˇ
+å i,l=e.act,e.¯
 ï l<0 É
-l=o[-l].ˇ
+l=o[-l].¯
 Ü
-ä é(r<i è a>l)í
+ä é(c<i è a>l)í
 ä i>=t.act í
-à o=1,t.∏ É
-å o=c[o]ä o>=i Å o<=l í
+à o=1,t.π É
+å o=r[o]ä o>=i Å o<=l í
 n=n-1
-e.Œ=ì
+e.Ã=ì
 Ç
 Ü
 Ü
 Ñ
 ä e.last Å e.last>=t.act í
 n=n-1
-e.Œ=ì
+e.Ã=ì
 Ü
 Ü
 Ü
@@ -538,175 +538,175 @@ e.Œ=ì
 Ü
 Ü
 å l,n={},1
-à o=1,a É
+à o=1,r É
 å e=e[o]ä é e.done í
-e.Œ=á
+e.Ã=á
 l[n]=e
 n=n+1
 Ü
 Ü
 e=l
-a=#e
+r=#e
 Ü
 à e=1,#o É
-å e=o[e]å l=e.æ
-ä e.Ã í
-à n=1,e.∏ É
-å n=l[n]u[n]=e.Ã
+å e=o[e]å n=e.¡
+ä e.Œ í
+à l=1,e.π É
+å n=n[l]s[n]=e.Œ
 Ü
-e.´,e.oldname=e.Ã,e.´
+e.´,e.oldname=e.Œ,e.´
 Ñ
 e.oldname=e.´
 Ü
 Ü
 ä c í
-r[#r+1]="self"Ü
-å e=_(o)Ü
-Ü)¶.—['llex']=(â(...)å p=_G
-å a=ö…‹"llex"å f=a.Ì
-å s=a.£
-å t=a.‘
-å h={}à e ã a.⁄([[
+i[#i+1]="self"Ü
+å e=p(o)Ü
+ë _M;Ü)ß.Õ['llex']=(â(...)å p=_G
+å r=ö…€"llex"å f=r.Ô
+å s=r.§
+å i=r.‘
+å h={}à e ã r.‹([[
 and break do else elseif end false for function if in
-local nil not or repeat return then true until while]],"%S+")É
+local nil not or repeat return then true until while]],˘)É
 h[e]=ì
 Ü
-å e,c,l,i,r
-å â o(l,n)å e=#˘+1
-˘[e]=l
-Õ[e]=n
-tokln[e]=r
+å e,d,l,t,c
+å â o(n,l)å e=#¸+1
+¸[e]=n
+“[e]=l
+tokln[e]=c
 Ü
-å â d(n,a)å i=t
+å â a(n,a)å i=i
 å t=i(e,n,n)n=n+1
-å e=i(e,n,n)ä(e==≤è e=="\r")Å(e~=t)í
+å e=i(e,n,n)ä(e==≠è e=="\r")Å(e~=t)í
 n=n+1
 t=t..e
 Ü
-ä a í o(®,t)Ü
-r=r+1
+ä a í o(©,t)Ü
+c=c+1
 l=n
 ë n
 Ü
-â Ò(t,n)e=t
-c=n
+â Ú(n,t)e=n
+d=t
 l=1
-r=1
-˘={}Õ={}tokln={}å t,i,e,n=f(e,"^(#[^\r\n]*)(\r?\n?)")ä t í
+c=1
+¸={}“={}tokln={}å t,i,e,n=f(e,"^(#[^\r\n]*)(\r?\n?)")ä t í
 l=l+#e
-o(§,e)ä#n>0 í d(l,ì)Ü
+o(¶,e)ä#n>0 í a(l,ì)Ü
 Ü
 Ü
-â chunkid()ä c Å s(c,"^[=@]")í
-ë t(c,2)Ü
+â chunkid()ä d Å s(d,"^[=@]")í
+ë i(d,2)Ü
 ë"[string]"Ü
-â errorline(n,e)å l=ø è p.ø
-l(a.Æ("%s:%d: %s",chunkid(),e è r,n))Ü
+â errorline(n,l)å e=Ω è p.Ω
+e(r.Ø("%s:%d: %s",chunkid(),l è c,n))Ü
 å c=errorline
-å â u(n)å t=t
+å â u(n)å t=i
 å i=t(e,n,n)n=n+1
 å o=#s(e,"=*",n)n=n+o
 l=n
 ë(t(e,n,n)==i)Å o è(-o)-1
 Ü
-å â _(r,s)å n=l+1
-å t=t
-å o=t(e,n,n)ä o=="\r"è o==≤í
-n=d(n)Ü
+å â _(r,d)å n=l+1
+å i=i
+å o=i(e,n,n)ä o=="\r"è o==≠í
+n=a(n)Ü
 å o=n
 ï ì É
-å o,f,a=f(e,"([\r\n%]])",n)ä é o í
+å o,s,f=f(e,"([\r\n%]])",n)ä é o í
 c(r Å"unfinished long string"è"unfinished long comment")Ü
 n=o
-ä a==ﬁí
-ä u(n)==s í
-i=t(e,i,l)l=l+1
-ë i
+ä f==ﬁí
+ä u(n)==d í
+t=i(e,t,l)l=l+1
+ë t
 Ü
 n=l
 Ñ
-i=i..≤n=d(n)Ü
+t=t..≠n=a(n)Ü
 Ü
 Ü
-å â m(u)å n=l
-å a=f
-å r=t
+å â m(s)å n=l
+å r=f
+å d=i
 ï ì É
-å t,f,o=a(e,"([\n\r\\\"'])",n)ä t í
-ä o==≤è o=="\r"í
-c(◊)Ü
-n=t
-ä o==ﬂí
+å i,f,o=r(e,"([\n\r\\\"'])",n)ä i í
+ä o==≠è o=="\r"í
+c(ÿ)Ü
+n=i
+ä o==‡í
 n=n+1
-o=r(e,n,n)ä o==Ωí Ç Ü
-t=a("abfnrtv\n\r",o,1,ì)ä t í
-ä t>7 í
-n=d(n)Ñ
+o=d(e,n,n)ä o==∫í Ç Ü
+i=r("abfnrtv\n\r",o,1,ì)ä i í
+ä i>7 í
+n=a(n)Ñ
 n=n+1
 Ü
-Ö a(o,"%D")í
+Ö r(o,"%D")í
 n=n+1
 Ñ
-å o,e,l=a(e,"^(%d%d?%d?)",n)n=e+1
+å o,e,l=r(e,"^(%d%d?%d?)",n)n=e+1
 ä l+1>256 í
 c("escape sequence too large")Ü
 Ü
 Ñ
 n=n+1
-ä o==u í
+ä o==s í
 l=n
-ë r(e,i,n-1)Ü
+ë d(e,t,n-1)Ü
 Ü
 Ñ
 Ç
 Ü
 Ü
-c(◊)Ü
-â llex()å a=f
-å f=s
+c(ÿ)Ü
+â llex()å r=f
+å d=s
 ï ì É
 å n=l
 ï ì É
-å s,b,r=a(e,"^([_%a][_%w]*)",n)ä s í
-l=n+#r
-ä h[r]í
-o(ù,r)Ñ
-o(°,r)Ü
+å s,g,f=r(e,"^([_%a][_%w]*)",n)ä s í
+l=n+#f
+ä h[f]í
+o(û,f)Ñ
+o(£,f)Ü
 Ç
 Ü
-å r,h,s=a(e,"^(%.?)%d",n)ä r í
-ä s==Ôí n=n+1 Ü
-å u,i,d=a(e,"^%d*[%.%d]*([eE]?)",n)n=i+1
-ä#d==1 í
-ä f(e,"^[%+%-]",n)í
+å f,h,s=r(e,"^(%.?)%d",n)ä f í
+ä s==Ïí n=n+1 Ü
+å s,t,a=r(e,"^%d*[%.%d]*([eE]?)",n)n=t+1
+ä#a==1 í
+ä d(e,"^[%+%-]",n)í
 n=n+1
 Ü
 Ü
-å i,n=a(e,"^[_%w]*",n)l=n+1
-å e=t(e,r,n)ä é p.‚(e)í
+å t,n=r(e,"^[_%w]*",n)l=n+1
+å e=i(e,f,n)ä é p.‚(e)í
 c("malformed number")Ü
 o(”,e)Ç
 Ü
-å p,h,s,r=a(e,"^((%s)[ \t\v\f]*)",n)ä p í
-ä r==≤è r=="\r"í
-d(n,ì)Ñ
-l=h+1
-o(∫,s)Ü
+å h,s,p,f=r(e,"^((%s)[ \t\v\f]*)",n)ä h í
+ä f==≠è f=="\r"í
+a(n,ì)Ñ
+l=s+1
+o(ª,p)Ü
 Ç
 Ü
-å r=f(e,"^%p",n)ä r í
-i=n
-å d=a("-[\"'.=<>~",r,1,ì)ä d í
-ä d<=2 í
-ä d==1 í
-å c=f(e,"^%-%-(%[?)",n)ä c í
+å a=d(e,"^%p",n)ä a í
+t=n
+å f=r("-[\"'.=<>~",a,1,ì)ä f í
+ä f<=2 í
+ä f==1 í
+å c=d(e,"^%-%-(%[?)",n)ä c í
 n=n+2
-å r=-1
+å a=-1
 ä c==«í
-r=u(n)Ü
-ä r>=0 í
-o(Ø,_(á,r))Ñ
-l=a(e,"[\n\r]",n)è(#e+1)o(§,t(e,i,l-1))Ü
+a=u(n)Ü
+ä a>=0 í
+o(∞,_(á,a))Ñ
+l=r(e,"[\n\r]",n)è(#e+1)o(¶,i(e,t,l-1))Ü
 Ç
 Ü
 Ñ
@@ -716,127 +716,127 @@ o(ò,«)Ñ
 c("invalid long string delimiter")Ü
 Ç
 Ü
-Ö d<=5 í
-ä d<5 í
+Ö f<=5 í
+ä f<5 í
 l=n+1
-o(ô,m(r))Ç
+o(ô,m(a))Ç
 Ü
-r=f(e,"^%.%.?%.?",n)Ñ
-r=f(e,"^%p=?",n)Ü
+a=d(e,"^%.%.?%.?",n)Ñ
+a=d(e,"^%p=?",n)Ü
 Ü
-l=n+#r
-o(ò,r)Ç
+l=n+#a
+o(ò,a)Ç
 Ü
-å e=t(e,n,n)ä e~=Ωí
+å e=i(e,n,n)ä e~=∫í
 l=n+1
 o(ò,e)Ç
 Ü
-o(∂,Ω)ë
+o(∑,∫)ë
 Ü
 Ü
 Ü
 ë _M
-Ü)¶.—['lparser']=(â(...)å I=_G
-å m=ö…‹"lparser"å N,K,x,q,d,f,z,n,E,c,p,_,l,X,O,M,a,T,v
-å b,i,g,L,y,k
-å e=m.⁄
-å V={}à e ã e("else elseif end until <eof>","%S+")É
-V[e]=ì
+Ü)ß.Õ['lparser']=(â(...)å R=_G
+å m=ö…€"lparser"å x,E,L,I,f,s,Q,n,k,c,h,_,l,H,K,S,d,T,v
+å g,a,b,y,N,w
+å e=m.‹
+å G={}à e ã e("else elseif end until <eof>",˘)É
+G[e]=ì
 Ü
-å F={}à e ã e("if while do for repeat function local return break","%S+")É
+å F={}à e ã e("if while do for repeat function local return break",˘)É
 F[e]=e.."_stat"Ü
-å S={}å H={}à e,n,l ã e([[
+å V={}å X={}à e,n,l ã e([[
 {+ 6 6}{- 6 6}{* 7 7}{/ 7 7}{% 7 7}
 {^ 10 9}{.. 5 4}
 {~= 3 3}{== 3 3}
 {< 3 3}{<= 3 3}{> 3 3}{>= 3 3}
 {and 2 2}{or 1 1}
 ]],"{(%S+)%s(%d+)%s(%d+)}")É
-S[e]=n+0
-H[e]=l+0
+V[e]=n+0
+X[e]=l+0
 Ü
-å J={["not"]=ì,["-"]=ì,["#"]=ì,}å j=8
-å â o(e,n)å l=ø è I.ø
-l(m.Æ("(source):%d: %s",n è c,e))Ü
-å â e()z=x[d]n,E,c,p=N[d],K[d],x[d],q[d]d=d+1
+å J={["not"]=ì,["-"]=ì,["#"]=ì,}å Z=8
+å â o(l,e)å n=Ω è R.Ω
+n(m.Ø("(source):%d: %s",e è c,l))Ü
+å â e()Q=L[f]n,k,c,h=x[f],E[f],L[f],I[f]f=f+1
 Ü
-å â Z()ë N[d]Ü
+å â j()ë x[f]Ü
 å â r(l)å e=n
-ä e~=’Å e~=∞í
-ä e==ßí e=E Ü
+ä e~=÷Å e~=±í
+ä e==™í e=k Ü
 e="'"..e.."'"Ü
 o(l.." near "..e)Ü
-å â s(e)r("'"..e.."' expected")Ü
+å â u(e)r("'"..e.."' expected")Ü
 å â o(l)ä n==l í e();ë ì Ü
 Ü
-å â C(e)ä n~=e í s(e)Ü
+å â M(e)ä n~=e í u(e)Ü
 Ü
-å â t(n)C(n);e()Ü
-å â Q(e,n)ä é e í r(n)Ü
+å â t(n)M(n);e()Ü
+å â P(n,e)ä é n í r(e)Ü
 Ü
-å â u(e,l,n)ä é o(e)í
+å â i(e,l,n)ä é o(e)í
 ä n==c í
-s(e)Ñ
+u(e)Ñ
 r("'"..e.."' expected (to close '"..l.."' at line "..n..")")Ü
 Ü
 Ü
-å â h()C(ß)å n=E
-_=p
+å â u()M(™)å n=k
+_=h
 e()ë n
 Ü
-å â A(e,n)e.k="VK"Ü
-å â R(e)A(e,h())Ü
-å â s(o,t)å e=l.bl
+å â C(e,n)e.k="VK"Ü
+å â A(e)C(e,u())Ü
+å â p(o,t)å e=l.bl
 å n
 ä e í
 n=e.õ
 Ñ
 n=l.õ
 Ü
-å e=#a+1
-a[e]={´=o,æ={_},Ó=_,}ä t í
-a[e].isself=ì
+å e=#d+1
+d[e]={´=o,¡={_},Ó=_,}ä t è o=="_ENV"í
+d[e].preserve=ì
 Ü
 å l=#T+1
 T[l]=e
 v[l]=n
 Ü
-å â w(e)å n=#T
+å â O(e)å n=#T
 ï e>0 É
 e=e-1
-å n=n-e
-å l=T[n]å e=a[l]å o=e.´
-e.act=p
-T[n]=ç
-å t=v[n]v[n]=ç
-å n=t[o]ä n í
-e=a[n]e.ˇ=-l
+å e=n-e
+å l=T[e]å n=d[l]å t=n.´
+n.act=h
+T[e]=ç
+å o=v[e]v[e]=ç
+å e=o[t]ä e í
+n=d[e]n.¯=-l
 Ü
-t[o]=l
+o[t]=l
 Ü
 Ü
-å â G()å n=l.bl
+å â q()å n=l.bl
 å e
 ä n í
 e=n.õ
 Ñ
 e=l.õ
 Ü
-à n,e ã I.pairs(e)É
-å e=a[e]e.ˇ=p
+à n,e ã R.pairs(e)É
+å e=d[e]e.¯=h
 Ü
 Ü
-å â p(e,n)ä m.‘(e,1,1)==ˆí
+å â h(e,n)ä m.‘(e,1,1)=="("í
 ë
 Ü
-s(e,n)Ü
-å â I(o,l)å n=o.bl
+p(e,n)Ü
+å â R(o,l)å n=o.bl
 å e
 ä n í
 e=n.õ
 ï e É
 ä e[l]í ë e[l]Ü
-n=n.∆
+n=n.≈
 e=n Å n.õ
 Ü
 Ü
@@ -844,226 +844,226 @@ e=o.õ
 ë e[l]è-1
 Ü
 å â m(n,l,e)ä n==ç í
-e.k=™ë™Ñ
-å o=I(n,l)ä o>=0 í
+e.k=¨ë¨Ñ
+å o=R(n,l)ä o>=0 í
 e.k= e.id=o
 ë Ñ
-ä m(n.∆,l,e)==™í
-ë™Ü
+ä m(n.≈,l,e)==¨í
+ë¨Ü
 e.k=ÈëÈÜ
 Ü
 Ü
-å â D(o)å n=h()m(l,n,o)ä o.k==™í
-å e=M[n]ä é e í
-e=#O+1
-O[e]={´=n,æ={_},}M[n]=e
+å â B(o)å n=u()m(l,n,o)ä o.k==¨í
+å e=S[n]ä é e í
+e=#K+1
+K[e]={´=n,¡={_},}S[n]=e
 Ñ
-å e=O[e].æ
+å e=K[e].¡
 e[#e+1]=_
 Ü
 Ñ
 å e=o.id
-å e=a[e].æ
+å e=d[e].¡
 e[#e+1]=_
 Ü
 Ü
-å â m(n)å e={}e.¸=n
-e.∆=l.bl
+å â m(n)å e={}e.isbreakable=n
+e.≈=l.bl
 e.õ={}l.bl=e
 Ü
 å â _()å e=l.bl
-G()l.bl=e.∆
+q()l.bl=e.≈
 Ü
-å â B()å e
+å â z()å e
 ä é l í
-e=X
+e=H
 Ñ
 e={}Ü
-e.∆=l
+e.≈=l
 e.bl=ç
 e.õ={}l=e
 Ü
-å â Y()G()l=l.∆
+å â Y()q()l=l.≈
 Ü
-å â G(l)å n={}e()R(n)l.k="VINDEXED"Ü
-å â W(n)e()i(n)t(ﬁ)Ü
-å â P(e)å e,l={},{}ä n==ßí
-R(e)Ñ
+å â R(n)å l={}e()A(l)n.k="VINDEXED"Ü
+å â W(n)e()a(n)t(ﬁ)Ü
+å â D(e)å e,l={},{}ä n==™í
+A(e)Ñ
 W(e)Ü
-t(º)i(l)Ü
-å â I(e)ä e.v.k==ƒí ë Ü
-e.v.k=ƒÜ
-å â I(e)i(e.v)Ü
-å â U(l)å i=c
+t(¿)a(l)Ü
+å â q(e)ä e.v.k==√í ë Ü
+e.v.k=√Ü
+å â q(e)a(e.v)Ü
+å â U(l)å a=c
 å e={}e.v={}e.t=l
-l.k="VRELOCABLE"e.v.k=ƒt("{")ê
+l.k="VRELOCABLE"e.v.k=√t("{")ê
 ä n=="}"í Ç Ü
 å n=n
-ä n==ßí
-ä Z()~=ºí
-I(e)Ñ
-P(e)Ü
+ä n==™í
+ä j()~=¿í
+q(e)Ñ
+D(e)Ü
 Ö n==«í
-P(e)Ñ
-I(e)Ü
-î é o(›)Å é o(";")u("}","{",i)Ü
-å â Z()å t=0
+D(e)Ñ
+q(e)Ü
+î é o(ﬂ)Å é o(";")i("}","{",a)Ü
+å â j()å t=0
 ä n~=")"í
 ê
 å n=n
-ä n==ßí
-s(h())t=t+1
-Ö n==‡í
-e()l.¡=ì
+ä n==™í
+p(u())t=t+1
+Ö n==·í
+e()l.ø=ì
 Ñ
 r("<name> or '...' expected")Ü
-î l.¡ è é o(›)Ü
-w(t)Ü
-å â P(i)å l={}å t=c
+î l.ø è é o(ﬂ)Ü
+O(t)Ü
+å â D(a)å l={}å t=c
 å o=n
-ä o==ˆí
-ä t~=z í
+ä o=="("í
+ä t~=Q í
 r("ambiguous syntax (function call x new statement)")Ü
 e()ä n==")"í
-l.k=ƒÑ
-b(l)Ü
-u(")",ˆ,t)Ö o=="{"í
-U(l)Ö o==∞í
-A(l,E)e()Ñ
+l.k=√Ñ
+g(l)Ü
+i(")","(",t)Ö o=="{"í
+U(l)Ö o==±í
+C(l,k)e()Ñ
 r("function arguments expected")ë
 Ü
-i.k="VCALL"Ü
-å â z(l)å n=n
-ä n==ˆí
+a.k="VCALL"Ü
+å â Q(l)å n=n
+ä n=="("í
 å n=c
-e()i(l)u(")",ˆ,n)Ö n==ßí
-D(l)Ñ
+e()a(l)i(")","(",n)Ö n==™í
+B(l)Ñ
 r("unexpected symbol")Ü
 Ü
-å â I(l)z(l)ï ì É
+å â q(l)Q(l)ï ì É
 å n=n
-ä n==Ôí
-G(l)Ö n==«í
+ä n==Ïí
+R(l)Ö n==«í
 å e={}W(e)Ö n==":"í
-å n={}e()R(n)P(l)Ö n==ˆè n==∞è n=="{"í
-P(l)Ñ
+å n={}e()A(n)D(l)Ö n=="("è n==±è n=="{"í
+D(l)Ñ
 ë
 Ü
 Ü
 Ü
-å â R(o)å n=n
-ä n==’í
-o.k="VKNUM"Ö n==∞í
-A(o,E)Ö n=="nil"í
+å â A(o)å n=n
+ä n==÷í
+o.k="VKNUM"Ö n==±í
+C(o,k)Ö n=="nil"í
 o.k="VNIL"Ö n=="true"í
 o.k="VTRUE"Ö n=="false"í
-o.k="VFALSE"Ö n==‡í
-Q(l.¡==ì,"cannot use '...' outside a vararg function");o.k="VVARARG"Ö n=="{"í
+o.k="VFALSE"Ö n==·í
+P(l.ø==ì,"cannot use '...' outside a vararg function");o.k="VVARARG"Ö n=="{"í
 U(o)ë
-Ö n==∑í
-e()y(o,á,c)ë
+Ö n==ºí
+e()N(o,á,c)ë
 Ñ
-I(o)ë
+q(o)ë
 Ü
 e()Ü
-å â E(o,t)å l=n
+å â k(o,t)å l=n
 å i=J[l]ä i í
-e()E(o,j)Ñ
-R(o)Ü
+e()k(o,Z)Ñ
+A(o)Ü
 l=n
-å n=S[l]ï n Å n>t É
-å o={}e()å e=E(o,H[l])l=e
-n=S[l]Ü
+å n=V[l]ï n Å n>t É
+å o={}e()å e=k(o,X[l])l=e
+n=V[l]Ü
 ë l
 Ü
-â i(e)E(e,0)Ü
-å â R(e)å n={}å e=e.v.k
-Q(e== è e==Èè e==™è e=="VINDEXED","syntax error")ä o(›)í
-å e={}e.v={}I(e.v)R(e)Ñ
-t(º)b(n)ë
+â a(e)k(e,0)Ü
+å â V(e)å n={}å e=e.v.k
+P(e== è e==Èè e==¨è e=="VINDEXED","syntax error")ä o(ﬂ)í
+å e={}e.v={}q(e.v)V(e)Ñ
+t(¿)g(n)ë
 Ü
 n.k="VNONRELOC"Ü
-å â E(e,n)t("do")m(á)w(e)g()_()Ü
-å â A(e)å n=f
-p("(for index)")p("(for limit)")p("(for step)")s(e)t(º)L()t(›)L()ä o(›)í
-L()Ñ
+å â k(e,n)t("do")m(á)O(e)b()_()Ü
+å â D(e)å n=s
+h("(for index)")h("(for limit)")h("(for step)")p(e)t(¿)y()t(ﬂ)y()ä o(ﬂ)í
+y()Ñ
 Ü
-E(1,ì)Ü
-å â S(e)å n={}p("(for generator)")p("(for state)")p("(for control)")s(e)å e=1
-ï o(›)É
-s(h())e=e+1
+k(1,ì)Ü
+å â C(e)å n={}h("(for generator)")h("(for state)")h("(for control)")p(e)å e=1
+ï o(ﬂ)É
+p(u())e=e+1
 Ü
-t("in")å l=f
-b(n)E(e,á)Ü
-å â U(e)å l=á
-D(e)ï n==ÔÉ
-G(e)Ü
+t("in")å l=s
+g(n)k(e,á)Ü
+å â P(e)å l=á
+B(e)ï n==ÏÉ
+R(e)Ü
 ä n==":"í
 l=ì
-G(e)Ü
+R(e)Ü
 ë l
 Ü
-â L()å e={}i(e)Ü
-å â E()å e={}i(e)Ü
-å â L()e()E()t("then")g()Ü
-å â P()å n,e={}s(h())n.k= w(1)y(e,á,c)Ü
-å â G()å e=0
+â y()å e={}a(e)Ü
+å â k()å e={}a(e)Ü
+å â y()e()k()t("then")b()Ü
+å â R()å n,e={}p(u())n.k= O(1)N(e,á,c)Ü
+å â A()å e=0
 å n={}ê
-s(h())e=e+1
-î é o(›)ä o(º)í
-b(n)Ñ
-n.k=ƒÜ
-w(e)Ü
-â b(e)i(e)ï o(›)É
-i(e)Ü
+p(u())e=e+1
+î é o(ﬂ)ä o(¿)í
+g(n)Ñ
+n.k=√Ü
+O(e)Ü
+â g(e)a(e)ï o(ﬂ)É
+a(e)Ü
 Ü
-â y(l,e,n)B()t(ˆ)ä e í
-p("self",ì)w(1)Ü
-Z()t(")")k()u(À,∑,n)Y()Ü
-â g()m(á)k()_()Ü
-â for_stat()å o=f
-m(ì)e()å l=h()å e=n
-ä e==ºí
-A(l)Ö e==›è e=="in"í
-S(l)Ñ
+â N(l,e,n)z()t("(")ä e í
+h("self",ì)O(1)Ü
+j()t(")")w()i(—,º,n)Y()Ü
+â b()m(á)w()_()Ü
+â for_stat()å o=s
+m(ì)e()å l=u()å e=n
+ä e==¿í
+D(l)Ö e==ﬂè e=="in"í
+C(l)Ñ
 r("'=' or 'in' expected")Ü
-u(À,"for",o)_()Ü
-â while_stat()å n=f
-e()E()m(ì)t("do")g()u(À,"while",n)_()Ü
-â repeat_stat()å n=f
-m(ì)m(á)e()k()u("until","repeat",n)E()_()_()Ü
-â if_stat()å l=f
-å o={}L()ï n=="elseif"É
-L()Ü
+i(—,"for",o)_()Ü
+â while_stat()å n=s
+e()k()m(ì)t("do")b()i(—,"while",n)_()Ü
+â repeat_stat()å n=s
+m(ì)m(á)e()w()i("until","repeat",n)k()_()_()Ü
+â if_stat()å l=s
+å o={}y()ï n=="elseif"É
+y()Ü
 ä n=="else"í
-e()g()Ü
-u(À,"if",l)Ü
+e()b()Ü
+i(—,"if",l)Ü
 â return_stat()å l={}e()å e=n
-ä V[e]è e==";"í
+ä G[e]è e==";"í
 Ñ
-b(l)Ü
+g(l)Ü
 Ü
 â break_stat()å n=l.bl
-e()ï n Å é n.¸ É
-n=n.∆
+e()ï n Å é n.isbreakable É
+n=n.≈
 Ü
 ä é n í
 r("no loop to break")Ü
 Ü
-â expr_stat()å e={}e.v={}I(e.v)ä e.v.k=="VCALL"í
+â expr_stat()å e={}e.v={}q(e.v)ä e.v.k=="VCALL"í
 Ñ
-e.∆=ç
-R(e)Ü
+e.≈=ç
+V(e)Ü
 Ü
-â function_stat()å l=f
-å n,o={},{}e()å e=U(n)y(o,e,l)Ü
-â do_stat()å n=f
-e()g()u(À,"do",n)Ü
-â local_stat()e()ä o(∑)í
-P()Ñ
-G()Ü
+â function_stat()å o=s
+å l,n={},{}e()å e=P(l)N(n,e,o)Ü
+â do_stat()å n=s
+e()b()i(—,"do",n)Ü
+â local_stat()e()ä o(º)í
+R()Ñ
+A()Ü
 Ü
-å â t()f=c
+å â t()s=c
 å e=n
 å n=F[e]ä n í
 _M[n]()ä e=="return"è e=="break"í ë ì Ü
@@ -1071,81 +1071,81 @@ _M[n]()ä e=="return"è e=="break"í ë ì Ü
 expr_stat()Ü
 ë á
 Ü
-â k()å e=á
-ï é e Å é V[n]É
+â w()å e=á
+ï é e Å é G[n]É
 e=t()o(";")Ü
 Ü
-â parser()B()l.¡=ì
-e()k()C("<eof>")Y()ë O,a
+â parser()z()l.ø=ì
+e()w()M("<eof>")Y()ë K,d
 Ü
-â Ò(e,o,i)d=1
-X={}å n=1
-N,K,x,q={},{},{},{}à l=1,#e É
-å e=e[l]å t=ì
-ä e==ùè e==òí
-e=o[l]Ö e==°í
-e=ßK[n]=o[l]Ö e==”í
-e=’K[n]=0
+â Ú(e,t,i)f=1
+H={}å n=1
+x,E,L,I={},{},{},{}à l=1,#e É
+å e=e[l]å o=ì
+ä e==ûè e==òí
+e=t[l]Ö e==£í
+e=™E[n]=t[l]Ö e==”í
+e=÷E[n]=0
 Ö e==ôè e==•í
-e=∞K[n]=ΩÖ e==∂í
+e=±E[n]=∫Ö e==∑í
 e="<eof>"Ñ
-t=á
+o=á
 Ü
-ä t í
-N[n]=e
-x[n]=i[l]q[n]=l
+ä o í
+x[n]=e
+L[n]=i[l]I[n]=l
 n=n+1
 Ü
 Ü
-O,M,a={},{},{}T,v={},{}Ü
+K,S,d={},{},{}T,v={},{}Ü
 ë _M
-Ü)pcall(ö,"luarocks.require");å o={v="verbose",vv="very_verbose",o="output",q="quiet",qq="very_quiet",g="debug"}å e={use_http=á};à n,l ã ¢(arg)É
-ä l:£("^%-")í
-å n=l:£("^%-%-?([^%s=]+)()")n=(o[n]è n):†("%-+","_");ä n:£("^no_")í
+Ü)pcall(ö,"luarocks.require");å o={v="verbose",vv="very_verbose",o="output",q="quiet",qq="very_quiet",g="debug"}å e={use_http=á,Ò=é é _ENV};à n,l ã ù(arg)É
+ä l:§("^%-")í
+å n=l:§("^%-%-?([^%s=]+)()")n=(o[n]è n):ü("%-+","_");ä n:§("^no_")í
 n=n:‘(4,-1);e[n]=á;Ñ
-e[n]=l:£("=(.*)$")è ì;Ü
+e[n]=l:§("=(.*)$")è ì;Ü
 Ñ
 ó=l;Ü
 Ü
 ä e.¬ í e.verbose=ì;Ü
-ä e.“ í e.quiet=ì;Ü
+ä e.– í e.quiet=ì;Ü
 å n=â()Ü
-å n,i,c,r=n,n,n,n;ä é e.“ í n=≠;Ü
-ä é e.quiet í i=≠;Ü
-ä e.verbose è e.¬ í c=≠;Ü
-ä e.¬ í r=≠;Ü
-≠=c;å o,f,a={},{},{};â Module(e)ä o[e]í
+å n,i,c,r=n,n,n,n;ä é e.– í n=Æ;Ü
+ä é e.quiet í i=Æ;Ü
+ä e.verbose è e.¬ í c=Æ;Ü
+ä e.¬ í r=Æ;Ü
+Æ=c;å o,f,a={},{},{};â Module(e)ä o[e]í
 c("Ignoring duplicate module definition for "..e);ë â()Ü
 Ü
-å n=#o+1;o[n]={´=e,url=Ú};o[e]=o[n];ë â(e)o[n].©=e;Ü
+å n=#o+1;o[n]={´=e,url=˜};o[e]=o[n];ë â(e)o[n].¢=e;Ü
 Ü
-â Resource(e,l)å n=#a+1;a[n]={´=e,©=l è e};ë â(e)a[n].©=e;Ü
+â Resource(e,l)å n=#a+1;a[n]={´=e,¢=l è e};ë â(e)a[n].¢=e;Ü
 Ü
-â AutoFetchURL(e)Ú=e;Ü
-â Main(e)Ï.insert(f,e);Ü
+â AutoFetchURL(e)˜=e;Ü
+â Main(e)Û.insert(f,e);Ü
 â Output(n)ä e.output==ç í
-û=n;Ü
+†=n;Ü
 Ü
-â Option(n)n=n:†("%-","_");ä e[n]==ç í
+â Option(n)n=n:ü("%-","_");ä e[n]==ç í
 e[n]=ì;ë â(l)e[n]=l;Ü
 Ñ
 ë â()Ü;Ü
 Ü
-â GetOption(n)ë e[n:†('%-','_')];Ü
+â GetOption(n)ë e[n:ü('%-','_')];Ü
 â Message(n)ä é e.quiet í
 i(n);Ü
 Ü
-â Error(l)ä é e.“ í
+â Error(l)ä é e.– í
 n(l);Ü
 Ü
-â Exit()˜.¿(1);Ü
-ó=(ó èÔ):†("/$",Ω).."/"Û=ó.."squishy";û=e.output;å t,l=pcall(dofile,Û);ä é t í
-n("Couldn't read squishy file: "..l);˜.¿(1);Ü
-ä é û í
-n("No output file specified by user or squishy file");˜.¿(1);Ö#f==0 Å#o==0 Å#a==0 í
-n("No files, modules or resources. Not going to generate an empty file.");˜.¿(1);Ü
-å d={};â d.filesystem(e)å e,n=io.µ(e);ä é e í ë á,n;Ü
-å n=e:€(Ê);e:¨();ë n;Ü
+â Exit()Ù.∂(1);Ü
+ó=(ó èÏ):ü("/$",∫).."/"ı=ó.."squishy";†=e.output;å t,l=pcall(dofile,ı);ä é t í
+n("Couldn't read squishy file: "..l);Ù.∂(1);Ü
+ä é † í
+n("No output file specified by user or squishy file");Ù.∂(1);Ö#f==0 Å#o==0 Å#a==0 í
+n("No files, modules or resources. Not going to generate an empty file.");Ù.∂(1);Ü
+å d={};â d.filesystem(e)å e,n=ˆ.¥(e);ä é e í ë á,n;Ü
+å n=e:⁄(Ë);e:®();ë n;Ü
 ä e.use_http í
 â d.http(n)å e=ö"socket.http";å n,e=e.request(n);ä e==200 í
 ë n;Ü
@@ -1153,58 +1153,89 @@ n("No files, modules or resources. Not going to generate an empty file.");˜.¿(1)
 Ñ
 â d.http(e)ë á,"Module not found. Re-squish with --use-http option to fetch it from "..e;Ü
 Ü
-i("Writing "..û..‡);å l,t=io.µ(û,"w+");ä é l í
-n("Couldn't open output file: "..ú(t));˜.¿(1);Ü
+c("Resolving modules...");É
+å e=ß.config:‘(1,1);å t=ß.config:‘(5,5);å l=ß.¢:ü(ˇ,â(n)ä é n:§("^%"..e)í
+ë ó..n;Ü
+Ü):ü("/%./","/");å i=ß.cpath:ü(ˇ,â(n)ä é n:§("^%"..e)í
+ë ó..n;Ü
+Ü):ü("/%./","/");â Á(n,l)n=n:ü("%.",e);à e ã l:‹(ˇ)É
+e=e:ü("%"..t,n);r("Looking for "..e)å n=ˆ.¥(e);ä n í
+r("Found!");n:®();ë e;Ü
+Ü
+ë ç;Ü
+à o,e ã ù(o)É
+ä é e.¢ í
+e.¢=Á(e.´,l);ä é e.¢ í
+n("Couldn't resolve module: "..e.´);Ñ
+e.¢=e.¢:ü("^"..ó:ü("%p","%%%1"),∫);Ü
+Ü
+Ü
+Ü
+à l,e ã ù(o)É
+ä é e.¢ í
+n("Exiting due to missing modules without a path");Ù.∂(1);Ü
+Ü
+ä e.list_files è e.’ í
+å â n(n)ä e.’ í
+å e=ˆ.¥(n);ä e í
+e:®();ë;Ü
+Ü
+ˆ.ñ(n,≠);Ü
+à l,e ã pairs(f)É
+n(e);Ü
+à l,e ã ù(o)É
+n(e.¢);Ü
+à l,e ã ù(a)É
+n(e.¢);Ü
+ë;Ü
+i("Writing "..†..·);å l,t=ˆ.¥(†,"w+");ä é l í
+n("Couldn't open output file: "..ú(t));Ù.∂(1);Ü
 ä e.œ í
 ä e.œ==ì í
 l:ñ("#!/usr/bin/env lua\n");Ñ
-l:ñ(e.œ,≤);Ü
+l:ñ(e.œ,≠);Ü
 Ü
-c("Resolving modules...");É
-å e=¶.config:‘(1,1);å i=¶.config:‘(5,5);å t=¶.©:†(˚,â(n)ä é n:£("^%"..e)í
-ë ó..n;Ü
-Ü):†("/%./","/");å l=¶.cpath:†(˚,â(n)ä é n:£("^%"..e)í
-ë ó..n;Ü
-Ü):†("/%./","/");â Á(n,l)n=n:†("%.",e);à e ã l:⁄(˚)É
-e=e:†("%"..i,n);r("Looking for "..e)å n=io.µ(e);ä n í
-r("Found!");n:¨();ë e;Ü
-Ü
-ë ç;Ü
-à l,e ã ¢(o)É
-ä é e.© í
-e.©=Á(e.´,t);ä é e.© í
-n("Couldn't resolve module: "..e.´);Ñ
-e.©=e.©:†("^"..ó:†("%p","%%%1"),Ω);Ü
+c("Packing modules...");à o,t ã ù(o)É
+å c,i=t.´,t.¢;ä t.¢:‘(1,1)~="/"í
+i=ó..t.¢;Ü
+r("Packing "..c.." ("..i..")...");å o,a=d.filesystem(i);ä(é o)Å t.url í
+å e=t.url:ü("%?",t.¢);r("Fetching: "..e)ä e:§("^https?://")í
+o,a=d.http(e);Ö e:§("^file://")è e:§("^[/%.]")í
+å e,n=ˆ.¥((e:ü("^file://",∫)));ä e í
+o,a=e:⁄(Ë);e:®();Ñ
+o,a=ç,n;Ü
 Ü
 Ü
-Ü
-c("Packing modules...");à t,o ã ¢(o)É
-å c,a=o.´,o.©;ä o.©:‘(1,1)~="/"í
-a=ó..o.©;Ü
-r("Packing "..c.." ("..a..")...");å t,i=d.filesystem(a);ä(é t)Å o.url í
-å e=o.url:†("%?",o.©);r("Fetching: "..e)ä e:£("^https?://")í
-t,i=d.http(e);Ö e:£("^file://")è e:£("^[/%.]")í
-å e,n=io.µ((e:†("^file://",Ω)));ä e í
-t,i=e:€(Ê);e:¨();Ñ
-t,i=ç,n;Ü
-Ü
-Ü
-ä t í
-ä é e.debug í
-l:ñ(ÿ,c,"'] = (function (...)\n");l:ñ(t);l:ñ(" end)\n");Ñ
-l:ñ(ÿ,c,"'] = assert(loadstring(\n");l:ñ(("%q\n"):Æ(t));l:ñ(", ",("%q"):Æ("@"..a),"))\n");Ü
+ä o í
+o=o:ü("^#[^\r\n]*\r?\n",∫);ä é e.debug í
+l:ñ(◊,c,"'] = (function (...)\n");ä e.Ò í
+l:ñ[[
+					local _ENV = _ENV;
+					local function module(name, ...)
+						local t = package.loaded[name] or _ENV[name] or { _NAME = name };
+						package.loaded[name] = t;
+						for i = 1, select("#", ...) do
+							(select(i, ...))(t);
+						end
+						_ENV = t;
+						_M = t;
+						return t;
+					end
+				]];Ü
+l:ñ(o);l:ñ(" end)\n");Ñ
+l:ñ(◊,c,"'] = assert(loadstring(\n");l:ñ(("%q\n"):Ø(o));l:ñ(", ",("%q"):Ø("@"..i),"))\n");Ü
 Ñ
-n("Couldn't pack module '"..c.."': "..(i è"unknown error... path to module file correct?"));˜.¿(1);Ü
+n("Couldn't pack module '"..c.."': "..(a è"unknown error... path to module file correct?"));Ù.∂(1);Ü
 Ü
 ä#a>0 í
-c("Packing resources...")l:ñ("do local resources = {};\n");à o,e ã ¢(a)É
-å t,e=e.´,e.©;å e,o=io.µ(ó..e,"rb");ä é e í
-n("Couldn't load resource: "..ú(o));˜.¿(1);Ü
-å e=e:€(Ê);å n=0;e:†("(=+)",â(e)n=math.max(n,#e);Ü);l:ñ(("resources[%q] = %q"):Æ(t,e));Ü
+c("Packing resources...")l:ñ("do local resources = {};\n");à o,e ã ù(a)É
+å o,e=e.´,e.¢;å e,t=ˆ.¥(ó..e,"rb");ä é e í
+n("Couldn't load resource: "..ú(t));Ù.∂(1);Ü
+å n=e:⁄(Ë);å e=0;n:ü("(=+)",â(n)e=math.max(e,#n);Ü);l:ñ(("resources[%q] = %q"):Ø(o,n));Ü
 ä e.virtual_io í
 å e=require_resource("vio");ä é e í
 n("Virtual IO requested but is not enabled in this build of squish");Ñ
-l:ñ(e,≤)l:ñ[[local io_open, io_lines = io.open, io.lines; function io.open(fn, mode)
+l:ñ(e,≠)l:ñ[[local io_open, io_lines = io.open, io.lines; function io.open(fn, mode)
 					if not resources[fn] then
 						return io_open(fn, mode);
 					else
@@ -1233,77 +1264,77 @@ l:ñ(e,≤)l:ñ[[local io_open, io_lines = io.open, io.lines; function io.open(fn, m
 Ü
 l:ñ[[function require_resource(name) return resources[name] or error("resource '"..tostring(name).."' not found"); end end ]]Ü
 r("Finalising...")à e,o ã pairs(f)É
-å e,t=io.µ(ó..o);ä é e í
-n("Failed to open "..o..": "..t);˜.¿(1);Ñ
-l:ñ((e:€(Ê):†("^#.-\n",Ω)));e:¨();Ü
+å e,t=ˆ.¥(ó..o);ä é e í
+n("Failed to open "..o..": "..t);Ù.∂(1);Ñ
+l:ñ((e:⁄(Ë):ü("^#.-\n",∫)));e:®();Ü
 Ü
-l:¨();i("OK!");å t=ö"optlex"å r=ö"optparser"å l=ö"llex"å c=ö"lparser"å o={none={};debug={≥,,"entropy",π,·};default={π,≥,»,·,};basic={π,≥,»};full={π,≥,»,"eols","strings",·,,"entropy"};}ä e.± Å é o[e.±]í
-n("Unknown minify level: "..e.±);n("Available minify levels: none, basic, default, full, debug");Ü
-à l,n ã ¢(o[e.± è"default"]è{})É
+l:®();i("OK!");å a=ö"optlex"å r=ö"optparser"å l=ö"llex"å c=ö"lparser"å o={none={};debug={≥,,"entropy",∏,„};default={∏,≥,»,„,};basic={∏,≥,»};full={∏,≥,»,"eols","strings",„,,"entropy"};}ä e.≤ Å é o[e.≤]í
+n("Unknown minify level: "..e.≤);n("Available minify levels: none, basic, default, full, debug");Ü
+à l,n ã ù(o[e.≤ è"default"]è{})É
 ä e["minify_"..n]==ç í
 e["minify_"..n]=ì;Ü
 Ü
-å a={["opt-locals"]=e.minify_locals;[ª]=e.minify_comments;[˝]=e.minify_entropy;[„]=e.minify_whitespace;[Â]=e.minify_emptylines;["opt-eols"]=e.minify_eols;[Ù]=e.minify_strings;[¯]=e.minify_numbers;}å â o(e)n("minify: "..e);˜.¿(1);Ü
-å â d(e)å n=io.µ(e,"rb")ä é n í o(‰..e..'" for reading')Ü
-å l=n:€(Ê)ä é l í o('cannot read from "'..e..'"')Ü
-n:¨()ë l
+å t={["opt-locals"]=e.minify_locals;[æ]=e.minify_comments;[˙]=e.minify_entropy;[‰]=e.minify_whitespace;[Â]=e.minify_emptylines;["opt-eols"]=e.minify_eols;[˝]=e.minify_strings;[˛]=e.minify_numbers;}å â o(e)n("minify: "..e);Ù.∂(1);Ü
+å â f(e)å n=ˆ.¥(e,"rb")ä é n í o(Ê..e..'" for reading')Ü
+å l=n:⁄(Ë)ä é l í o('cannot read from "'..e..'"')Ü
+n:®()ë l
 Ü
-å â f(n,l)å e=io.µ(n,"wb")ä é e í o(‰..n..'" for writing')Ü
-å l=e:ñ(l)ä é l í o('cannot write to "'..n..'"')Ü
-e:¨()Ü
-â Ë(e)l.Ò(e)l.llex()å n,e,l=l.˘,l.Õ,l.tokln
-ä a["opt-locals"]í
-r.≠=≠
-c.Ò(n,e,l)å l,o=c.parser()r.≈(a,n,e,l,o)Ü
-t.≠=≠
-n,e,l=t.≈(a,n,e,l)å e=Ï.concat(e)ä ü.Ì(e,"\r\n",1,1)è
-ü.Ì(e,"\n\r",1,1)í
-t.warn.mixedeol=ì
+å â d(e,l)å n=ˆ.¥(e,"wb")ä é n í o(Ê..e..'" for writing')Ü
+å l=n:ñ(l)ä é l í o('cannot write to "'..e..'"')Ü
+n:®()Ü
+â Í(e)l.Ú(e)l.llex()å n,e,l=l.¸,l.“,l.tokln
+ä t["opt-locals"]í
+r.Æ=Æ
+c.Ú(n,e,l)å l,o=c.parser()r.∆(t,n,e,l,o)Ü
+a.Æ=Æ
+n,e,l=a.∆(t,n,e,l)å e=Û.concat(e)ä °.Ô(e,"\r\n",1,1)è
+°.Ô(e,"\n\r",1,1)í
+a.warn.mixedeol=ì
 Ü
 ë e;Ü
-â ı(e,n)å e=d(e);e=Ë(e);f(n,e);Ü
+â minify_file(e,n)å e=f(e);e=Í(e);d(n,e);Ü
 ä e.minify~=á í
-i("Minifying "..û..‡);ı(û,û);i("OK!");Ü
-å a=ö"llex"å o=128;å t={"and","break","do","else","elseif",À,"false","for",∑,"if","in","local","nil","not","or","repeat","return","then","true","until","while"}â ˙(f,i)å c,l=io.µ(f);ä é c í
+i("Minifying "..†..·);minify_file(†,†);i("OK!");Ü
+å a=ö"llex"å o=128;å t={"and","break","do","else","elseif",—,"false","for",º,"if","in","local","nil","not","or","repeat","return","then","true","until","while"}â uglify_file(f,i)å r,l=ˆ.¥(f);ä é r í
 n("Can't open input file for reading: "..ú(l));ë;Ü
-å l,r=io.µ(i..–,"wb+");ä é l í
-n("Can't open output file for writing: "..ú(r));ë;Ü
-å r=c:€(Ê);c:¨();å c,n=r:£("^(#.-\n)(.+)$");å n=n è r;ä c í
-l:ñ(c)Ü
-ï o+#t<=255 Å n:Ì(«..ü.Ÿ(o).."-"..ü.Ÿ(o+#t-1)..ﬁ)É
+å l,c=ˆ.¥(i..À,"w+b");ä é l í
+n("Can't open output file for writing: "..ú(c));ë;Ü
+å d=r:⁄(Ë);r:®();å r,n=d:§("^(#.-\n)(.+)$");å n=n è d;ä r í
+l:ñ(r)Ü
+ï o+#t<=255 Å n:Ô(«..°.›(o).."-"..°.›(o+#t-1)..ﬁ)É
 o=o+1;Ü
 ä o+#t>255 í
-l:ñ(n);l:¨();˜.rename(i..–,i);ë;Ü
-å d={}à e,n ã ¢(t)É
-d[n]=ü.Ÿ(o+e);Ü
-å c=0;r:†("(=+)",â(e)c=math.max(c,#e);Ü);a.Ò(n,"@"..f);a.llex()å r=a.Õ;ä e.uglify_level=="full"Å o+#t<255 í
-å e={};à o,l ã ¢(a.˘)É
-ä l==°è l==ôí
-å n=ü.Æ("%q,%q",l,r[o]);ä é e[n]í
-e[n]={type=l,÷=r[o],Í=0};e[#e+1]=e[n];Ü
-e[n].Í=e[n].Í+1;Ü
+l:ñ(n);l:®();Ù.rename(i..À,i);ë;Ü
+å c={}à n,e ã ù(t)É
+c[e]=°.›(o+n);Ü
+å r=0;d:ü("(=+)",â(e)r=math.max(r,#e);Ü);a.Ú(n,"@"..f);a.llex()å n=a.“;ä e.uglify_level=="full"Å o+#t<255 í
+å e={};à t,o ã ù(a.¸)É
+ä o==£è o==ôí
+å l=°.Ø("%q,%q",o,n[t]);ä é e[l]í
+e[l]={type=o,Ÿ=n[t],Ì=0};e[#e+1]=e[l];Ü
+e[l].Ì=e[l].Ì+1;Ü
 Ü
 à n=1,#e É
-å e=e[n];e.Î=(e.Í)*(#e.÷-1)-#ü.Æ("%q",e.÷)-1;Ü
-Ï.sort(e,â(e,n)ë e.Î>n.Î;Ü);å n=255-(o+#t);à n=n+1,#e É
+å e=e[n];e.Î=(e.Ì)*(#e.Ÿ-1)-#°.Ø("%q",e.Ÿ)-1;Ü
+Û.sort(e,â(n,e)ë n.Î>e.Î;Ü);å n=255-(o+#t);à n=n+1,#e É
 e[n]=ç;Ü
-å l=#t;à n,e ã ¢(e)É
+å n=#t;à l,e ã ù(e)É
 ä e.Î>0 í
-Ï.insert(t,e.÷);d[e.÷]=ü.Ÿ(o+l+n);Ü
+Û.insert(t,e.Ÿ);c[e.Ÿ]=°.›(o+n+l);Ü
 Ü
 Ü
-l:ñ("local base_char,keywords=",ú(o),",{");à n,e ã ¢(t)É
-l:ñ(ü.Æ("%q",e),',');Ü
+l:ñ("local base_char,keywords=",ú(o),",{");à n,e ã ù(t)É
+l:ñ(°.Ø("%q",e),',');Ü
 l:ñ[[}; function prettify(code) return code:gsub("["..string.char(base_char).."-"..string.char(base_char+#keywords).."]", 
-	function (c) return keywords[c:byte()-base_char]; end) end ]]l:ñ[[return assert(loadstring(prettify]]l:ñ(«,ü.rep(º,c+1),«);à n,e ã ¢(a.˘)É
-ä e==ùè e==°è e==ôí
-å e=d[r[n]];ä e í
+	function (c) return keywords[c:byte()-base_char]; end) end ]]l:ñ[[return setfenv(assert(loadstring(prettify]]l:ñ(«,°.rep(¿,r+1),«);à o,e ã ù(a.¸)É
+ä e==ûè e==£è e==ôí
+å e=c[n[o]];ä e í
 l:ñ(e);Ñ
-l:ñ(r[n]);Ü
+l:ñ(n[o]);Ü
 Ñ
-l:ñ(r[n]);Ü
+l:ñ(n[o]);Ü
 Ü
-l:ñ(ﬁ,ü.rep(º,c+1),ﬁ);l:ñ(", '@",i,"'))()");l:¨();˜.rename(i..–,i);Ü
+l:ñ(ﬁ,°.rep(¿,r+1),ﬁ);l:ñ(", '@",i,"')), getfenv())()");l:®();Ù.rename(i..À,i);Ü
 ä e.uglify í
-i("Uglifying "..û..‡);˙(û,û);i("OK!");Ü
-]===], '@squish'))()
+i("Uglifying "..†..·);uglify_file(†,†);i("OK!");Ü
+]===], '@squish')), getfenv())()
