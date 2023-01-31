@@ -1,10 +1,14 @@
-@set out=gm8x_fix_lua
-@echo Building %out%.exe ...
+@echo off
+set out=gm8x_fix_lua
+echo Building %out%.exe ...
 
-@(
-    lua build\squish
-    del a.lua
-    ren a.lua.uglified a.lua
-    build\glue build\srlua.exe a.lua %out%.exe
-    del a.lua
-)>nul
+if not exist build\squish.exe (
+    cd build
+    glue srlua.exe squish squish.exe
+    cd ..
+)
+
+build\squish
+ren a.lua.uglified a
+build\glue build\srlua.exe a %out%.exe
+del a.lua a
