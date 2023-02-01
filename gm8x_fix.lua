@@ -31,19 +31,19 @@ function patch_exe(file, patches)
 end
 
 local function printHelp()
-    print([[
-Usage: %s file [options]
-        or drag the game file into the patcher.
-
-  -h    print this help
-  -nb   disable backup
-  -ni   disable input lag patch
-  -nj   disable joystick patch
-  -ns   disable scheduler patch
-  -nr   disable display reset patch
-  -nm   disable memory patch
-  -nd   disable DirectPlay Patch]],
-        arg[0])
+    print(table.concat({
+        "Usage: " .. arg[0] .. " file [options]",
+        "        or drag the game file into the patcher.",
+        "",
+        "  -h    print this help",
+        "  -nb   disable backup",
+        "  -ni   disable input lag patch",
+        "  -nj   disable joystick patch",
+        "  -ns   disable scheduler patch",
+        "  -nr   disable display reset patch",
+        "  -nm   disable memory patch",
+        "  -nd   disable DirectPlay Patch]]"}, "\n"
+    ))
 end
 
 --[[ Main program ]]--
