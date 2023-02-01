@@ -7,7 +7,7 @@ local patchList = require "patches"
 
 --[[ Split functions ]]--
 
-function can_patch(file, patches)
+local function can_patch(file, patches)
     local patched, unpatched = true, true
     local char
 
@@ -23,7 +23,7 @@ function can_patch(file, patches)
                       return PatchState.UNFOUND
 end
 
-function patch_exe(file, patches)
+local function patch_exe(file, patches)
     for _,patch in ipairs(patches) do
         file:seek("set", patch.pos)
         file:write(patch.newByte)
@@ -48,9 +48,7 @@ end
 
 --[[ Main program ]]--
 
-local filename, silent, makeBackup =
-      nil,      false,  true
-
+local filename, silent, makeBackup = nil, false, true
 local patchDisabled = {}
 
 -- Parse arguments
