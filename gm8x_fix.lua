@@ -69,6 +69,13 @@ for i=1, #arg do
     else filename = arg end
 end
 
+-- Disable print and prompt if silent mode is on
+if silent then
+    print     = function(...) end
+    prompt    = function(...) return true end
+    printHelp = function() end
+end
+
 -- Check if user disabled all patches
 local allDisabled = true
 
