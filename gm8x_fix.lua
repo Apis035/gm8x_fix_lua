@@ -1,11 +1,27 @@
 --[[ Requires ]]--
 
 require "patch_types"
-require "util"
 
 local patchList = require "patches"
 
 --[[ Split functions ]]--
+
+local write, wait, exit = io.write, io.read, os.exit
+
+local function print(str, ...)
+    _G.print(tostring(str):format(...))
+end
+
+local function prompt(msg, ...)
+    local char
+
+    while char ~= 'y' and char ~= 'n' do
+        io.write((msg .. " [y/n] "):format(...))
+        char = string.lower(io.read())
+    end
+
+    return char == 'y'
+end
 
 local function can_patch(file, patches)
     local patched, unpatched = true, true
