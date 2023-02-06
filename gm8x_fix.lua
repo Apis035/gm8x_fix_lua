@@ -63,7 +63,7 @@ local disabledPatch = {}
 for i=1, #arg do
     local arg = arg[i]
 
-        if arg == "-h"  then print(help) exit()
+        if arg == "-h"  then print(help) exit(1)
     elseif arg == "-s"  then isSilent   = true
     elseif arg == "-nb" then makeBackup = false
     elseif arg == "-nj" then disabledPatch[PatchType.JOY]      = true
@@ -93,14 +93,14 @@ for i=1, #PatchType do
 end
 if isAllPatchesDisabled then
     print "All patches is disabled, no operation will be performed."
-    exit()
+    exit(1)
 end
 
 -- No file specified
 if inputFile == nil then
     print "Input file is not specified."
     print(help)
-    exit()
+    exit(1)
 end
 
 --| Reading input file |--------------------------------------------------------
@@ -112,14 +112,14 @@ local file, err = io.open(inputFile, "r+b")
 -- Can't open file
 if file == nil then
     print("Could not open file (%s).", err)
-    exit()
+    exit(1)
 end
 
 -- No MZ header
 if file:read(2) ~= "MZ" then
     print "This is not an executable file."
     file:close()
-    exit()
+    exit(1)
 end
 
 --| Scanning patches |----------------------------------------------------------
@@ -151,7 +151,7 @@ if not canApplyPatch and not hasAppliedPatch then
     print "This game cannot be patched."
     print "It may not be a GameMaker 7.0, 8.0, or 8.1 game."
     file:close()
-    exit()
+    exit(1)
 end
 
 -- List applied patches
@@ -176,7 +176,7 @@ else
     -- All patch has been applied
     print "No new patches can be applied."
     file:close()
-    exit()
+    exit(1)
 end
 
 --| Applying patches |----------------------------------------------------------
@@ -196,7 +196,7 @@ if makeBackup then
 
         doBackup = prompt "Do you want to overwrite backup file?"
             or not prompt "Continue applying patches without backup?"
-               and exit()
+               and exit(1)
     end
 
     if doBackup then
