@@ -40,6 +40,14 @@ local function patch_exe(file, patches)
     end
 end
 
+local titleBox = table.concat({
+    "+-----------------------------------------+",
+    "| gm8x_fix_lua v0.2 -- Feb 6th 2023       |",
+    "| https://github.com/Apis035/gm8x_fix_lua |",
+    "+-----------------------------------------+",
+    "",
+}, "\n")
+
 local help = table.concat({
     "Usage: " .. arg[0] .. " file [options]",
     "        or drag the game file into the patcher.",
@@ -63,7 +71,11 @@ local disabledPatch = {}
 for i=1, #arg do
     local arg = arg[i]
 
-        if arg == "-h"  then print(help) exit(1)
+    if arg == "-h"  then
+        print(titleBox)
+        print(help)
+        exit(1)
+
     elseif arg == "-s"  then isSilent   = true
     elseif arg == "-nb" then makeBackup = false
     elseif arg == "-nj" then disabledPatch[PatchType.JOY]      = true
@@ -77,20 +89,21 @@ for i=1, #arg do
     else inputFile = arg end
 end
 
--- Disable print and prompt if silent mode is on
-if isSilent then
-    print  = function(...) end
-    prompt = function(...) return true end
+-- Show title if not in silent mode
+if not isSilent or inputFile == nil then
+    print(titleBox)
 end
 
 -- Check if user disabled all patches
 local isAllPatchesDisabled = true
+
 for i=1, #PatchType do
     if disabledPatch[i] ~= true then
         isAllPatchesDisabled = false
         break
     end
 end
+
 if isAllPatchesDisabled then
     print "All patches is disabled, no operation will be performed."
     exit(1)
@@ -99,13 +112,20 @@ end
 -- No file specified
 if inputFile == nil then
     print "Input file is not specified."
+    print ""
     print(help)
     exit(1)
 end
 
+-- Disable print and prompt if silent mode is on
+if isSilent then
+    print  = function(...) end
+    prompt = function(...) return true end
+end
+
 --| Reading input file |--------------------------------------------------------
 
-print("Inspecting file %s...", inputFile)
+print("Inspecting file %s...\n", inputFile)
 
 local file, err = io.open(inputFile, "r+b")
 
@@ -163,6 +183,7 @@ if hasAppliedPatch then
         end
     end
 end
+print ""
 
 -- List applicable patches
 if canApplyPatch then
@@ -178,12 +199,13 @@ else
     file:close()
     exit(1)
 end
+print ""
 
 --| Applying patches |----------------------------------------------------------
 
 -- Backup file
 if makeBackup then
-    print "Backup will be made before applying patches."
+    print "Backup will be made before applying patches.\n"
 
     local backupName = inputFile .. '.bak'
     local backupFile = io.open(backupName, "rb")
@@ -203,6 +225,7 @@ if makeBackup then
         os.execute("copy " .. inputFile .. " " .. backupName)
     end
 end
+print ""
 
 -- Begin applying patch
 local joystickPatched = false
