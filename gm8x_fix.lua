@@ -204,7 +204,7 @@ if makeBackup then
     end
 end
 
-file = io.open(inputFile, "r+b")
+-- Begin applying patch
 local joystickPatched = false
 
 for _,patch in ipairs(patchList) do
