@@ -1,7 +1,6 @@
 --| Requires |------------------------------------------------------------------
 
 require "patch_types"
-local patchList = require "patches"
 
 --| Split functions |-----------------------------------------------------------
 
@@ -125,6 +124,7 @@ end
 
 --| Scanning patches |----------------------------------------------------------
 
+local patchList = require "patches"
 local hasAppliedPatch, canApplyPatch = false, false
 
 for _,patch in pairs(patchList) do
