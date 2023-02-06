@@ -1,10 +1,9 @@
---[[ Requires ]]--
+--| Requires |------------------------------------------------------------------
 
 require "patch_types"
-
 local patchList = require "patches"
 
---[[ Split functions ]]--
+--| Split functions |-----------------------------------------------------------
 
 local write, wait, exit = io.write, io.read, os.exit
 
@@ -14,26 +13,22 @@ end
 
 local function prompt(msg, ...)
     local char
-
-    while char ~= 'y' and char ~= 'n' do
+    repeat
         io.write((msg .. " [y/n] "):format(...))
         char = string.lower(io.read())
-    end
-
+    until char == 'y' or char == 'n'
     return char == 'y'
 end
 
-local function can_patch(file, patches)
-    local patched, unpatched = true, true
+local function check_patch(file, patches)
     local char
-
+    local patched, unpatched = true, true
     for _,patch in ipairs(patches) do
         file:seek("set", patch.pos)
         char = file:read(1)
         if char ~= patch.newByte  then   patched = false end
         if char ~= patch.origByte then unpatched = false end
     end
-
     if   patched then return PatchState.DONE end
     if unpatched then return PatchState.ABLE end
                       return PatchState.UNFOUND
@@ -46,115 +41,120 @@ local function patch_exe(file, patches)
     end
 end
 
-local function printHelp()
-    print(table.concat({
-        "Usage: " .. arg[0] .. " file [options]",
-        "        or drag the game file into the patcher.",
-        "",
-        "  -h    print this help",
-        "  -nb   disable backup",
-        "  -ni   disable input lag patch",
-        "  -nj   disable joystick patch",
-        "  -ns   disable scheduler patch",
-        "  -nr   disable display reset patch",
-        "  -nm   disable memory patch",
-        "  -nd   disable DirectPlay Patch]]"}, "\n"
-    ))
-end
+local help = table.concat({
+    "Usage: " .. arg[0] .. " file [options]",
+    "        or drag the game file into the patcher.",
+    "",
+    "  -h    print this help",
+    "  -nb   disable backup",
+    "  -ni   disable input lag patch",
+    "  -nj   disable joystick patch",
+    "  -ns   disable scheduler patch",
+    "  -nr   disable display reset patch",
+    "  -nm   disable memory patch",
+    "  -nd   disable DirectPlay Patch"
+}, "\n")
 
---[[ Main program ]]--
+--| Argument parsing |----------------------------------------------------------
 
-local filename, silent, makeBackup = nil, false, true
-local patchDisabled = {}
+local inputFile
+local isSilent, makeBackup = false, true
+local disabledPatch = {}
 
--- Parse arguments
 for i=1, #arg do
     local arg = arg[i]
 
-        if arg == "-h"  then printHelp() exit()
-    elseif arg == "-s"  then silent     = true
+        if arg == "-h"  then print(help) exit()
+    elseif arg == "-s"  then isSilent   = true
     elseif arg == "-nb" then makeBackup = false
-    elseif arg == "-nj" then patchDisabled[PatchType.JOY]      = true
-    elseif arg == "-nm" then patchDisabled[PatchType.MEM]      = true
-    elseif arg == "-nd" then patchDisabled[PatchType.DPLAY]    = true
-    elseif arg == "-ns" then patchDisabled[PatchType.SCHED]    = true
-    elseif arg == "-ni" then patchDisabled[PatchType.INPUTLAG] = true
-    elseif arg == "-nr" then patchDisabled[PatchType.RESET]    = true
+    elseif arg == "-nj" then disabledPatch[PatchType.JOY]      = true
+    elseif arg == "-nm" then disabledPatch[PatchType.MEM]      = true
+    elseif arg == "-nd" then disabledPatch[PatchType.DPLAY]    = true
+    elseif arg == "-ns" then disabledPatch[PatchType.SCHED]    = true
+    elseif arg == "-ni" then disabledPatch[PatchType.INPUTLAG] = true
+    elseif arg == "-nr" then disabledPatch[PatchType.RESET]    = true
 
-    -- Select the lastest inputted file if multiple file is specified
-    else filename = arg end
+    -- Select last inputted file if multiple file is supplied
+    else inputFile = arg end
 end
 
 -- Disable print and prompt if silent mode is on
-if silent then
-    print     = function(...) end
-    prompt    = function(...) return true end
-    printHelp = function() end
+if isSilent then
+    print  = function(...) end
+    prompt = function(...) return true end
 end
 
 -- Check if user disabled all patches
-local allDisabled = true
-
+local isAllPatchesDisabled = true
 for i=1, #PatchType do
-    if patchDisabled[i] ~= true then
-        allDisabled = false
+    if disabledPatch[i] ~= true then
+        isAllPatchesDisabled = false
         break
     end
 end
-
-if allDisabled then
-    print "All patch is disabled, no operation will be performed. Closing..."
+if isAllPatchesDisabled then
+    print "All patches is disabled, no operation will be performed."
     exit()
 end
 
 -- No file specified
-if filename == nil then
-    print "No file is specified."
-    printHelp()
+if inputFile == nil then
+    print "Input file is not specified."
+    print(help)
     exit()
 end
 
--- Check input file
-print("Inspecting file %s", filename)
+--| Reading input file |--------------------------------------------------------
 
-local file, msg = io.open(filename, "r+b")
+print("Inspecting file %s...", inputFile)
 
--- File not loaded
+local file, err = io.open(inputFile, "r+b")
+
+-- Can't open file
 if file == nil then
-    print("Could not open file (%s).", msg)
+    print("Could not open file (%s).", err)
     exit()
 end
 
 -- No MZ header
 if file:read(2) ~= "MZ" then
     print "This is not an executable file."
-    exit()
-end
-
-local hasAppliedPatch, canApplyPatch = false, false
-
-for _,patch in pairs(patchList) do
-    patch.state = can_patch(file, patch.bytes)
-
-    if patchDisabled[patch.type] and patch.state == PatchState.ABLE then
-        patch.state = PatchState.UNFOUND
-    end
-
-    if patch.state == PatchState.ABLE then
-        canApplyPatch = true
-    elseif patch.state == PatchState.DONE then
-        hasAppliedPatch = true
-    end
-end
-
--- Can't find compatible patches
-if not canApplyPatch and not hasAppliedPatch then
-    print "This game cannot be patched. It may not be a GameMaker 7.0, 8.0, or 8.1 game."
     file:close()
     exit()
 end
 
--- Patch has been applied
+--| Scanning patches |----------------------------------------------------------
+
+local hasAppliedPatch, canApplyPatch = false, false
+
+for _,patch in pairs(patchList) do
+    patch.state = check_patch(file, patch.bytes)
+
+    -- Assume patch is not found if patch is disabled
+    if disabledPatch[patch.type] and patch.state == PatchState.ABLE then
+        patch.state = PatchState.UNFOUND
+    end
+
+    -- There are patch that has been applied
+    if patch.state == PatchState.DONE then
+        hasAppliedPatch = true
+    end
+
+    -- There are patch that can be applied
+    if patch.state == PatchState.ABLE then
+        canApplyPatch = true
+    end
+end
+
+-- No applicable patch
+if not canApplyPatch and not hasAppliedPatch then
+    print "This game cannot be patched."
+    print "It may not be a GameMaker 7.0, 8.0, or 8.1 game."
+    file:close()
+    exit()
+end
+
+-- List applied patches
 if hasAppliedPatch then
     print "Patches already applied:"
     for _,patch in pairs(patchList) do
@@ -164,9 +164,9 @@ if hasAppliedPatch then
     end
 end
 
--- Patch can be applied
+-- List applicable patches
 if canApplyPatch then
-    print "Patches that can be applied:"
+    print "Patches can be applied:"
     for _,patch in pairs(patchList) do
         if patch.state == PatchState.ABLE then
             print(" * %s", patch.name)
@@ -179,50 +179,53 @@ else
     exit()
 end
 
+--| Applying patches |----------------------------------------------------------
+
 -- Backup file
 if makeBackup then
     print "Backup will be made before applying patches."
-    write "Press Enter to continue..."
-    wait()
 
-    local backupFilename  = filename .. '.bak'
-    local backupFileExist = io.open(backupFilename, "rb")
-    local doBackup        = backupFileExist == nil
+    local backupName = inputFile .. '.bak'
+    local backupFile = io.open(backupName, "rb")
+    local doBackup   = backupFile == nil
 
-    if backupFileExist then
-        backupFileExist:close()
+    if backupFile then
+        backupFile:close()
 
-        print("Previous backup file exist on %s", backupFilename)
+        print("Previous backup file exist on %s", backupName)
 
-        doBackup = prompt "Do you want to overwrite backup file?"     -- If yes return true
-            or not prompt "Continue applying patches without backup?" -- If yes return false
-               and exit()                                             -- No backup and no continue
+        doBackup = prompt "Do you want to overwrite backup file?"
+            or not prompt "Continue applying patches without backup?"
+               and exit()
     end
 
     if doBackup then
-        os.execute("copy " .. filename .. " " .. backupFilename)
+        os.execute("copy " .. inputFile .. " " .. backupName)
     end
 end
 
--- Apply patches
-file = io.open(filename, "r+b")
-local joyPatched = false
+file = io.open(inputFile, "r+b")
+local joystickPatched = false
 
 for _,patch in ipairs(patchList) do
+    -- Check if joystick already patched
     if patch.type == PatchType.JOY and patch.state == PatchState.DONE then
-        joyPatched = true
+        joystickPatched = true
     end
 
+    -- Warn if joystick is not patched
     if patch.state == PatchState.ABLE then
-        if patch.type == PatchType.SCHED and not joyPatched then
-            print "It looks like the joystick patch wasn't applied."
-            print "It's best to apply that if you're going to use the scheduler patch."
+        if patch.type == PatchType.SCHED and not joystickPatched then
+            print "Joystick patch is not applied."
+            print "Scheduler patch may not work without joystick patch."
         end
 
+        -- Apply patch
         if prompt("Apply %s?", patch.name) then
             patch_exe(file, patch.bytes)
+
             if patch.type == PatchType.JOY then
-                joyPatched = true
+                joystickPatched = true
             end
         end
     end
