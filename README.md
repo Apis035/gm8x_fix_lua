@@ -1,23 +1,28 @@
 # gm8x_fix_lua
-A patcher that fixes certain issues in games made with Game Maker 7.0, 8.0, and 8.1. gm8x_fix_lua is a traslation of [skyfloogle](https://github.com/skyfloogle)'s [gm8x_fix](https://github.com/skyfloogle/gm8x_fix) from C language to Lua language.
+**gm8x_fix_lua** is a Lua implementation of [gm8x_fix](https://github.com/skyfloogle/gm8x_fix) from C language. Originally created by [skyfloogle](https://github.com/skyfloogle).
 
-This was created as an exercise for me to learn how to write Lua code and understanding how Lua works. The translated Lua code are not all identical to the C code, some of the algorithms in original C code are altered/simplified to fit into or use the features of Lua.
+**gm8x_fix** is patcher that fixes issues in games made with Game Maker 7.0, 8.0, and 8.1.
+
+This was created as an exercise for me to write Lua code and understanding how Lua works. The translated Lua code are not all identical to the C code, some of the algorithms in original C code are changed to use the features of Lua.
 
 # Running
 Download the binary release from [Releases](https://github.com/apis035/gm8x_fix_lua/releases) tab.
 
 If you want to run directly from source code:
 
-`lua gm8x_fix.lua`
+```batch
+> lua gm8x_fix.lua
+```
 
-Assuming you have Lua installed and accessible from PATH environment. Tested with Lua 5.1.1.
+Assuming you have Lua installed and is accessible from PATH environment. Tested with Lua 5.1.5.
 
 # How to use
-Drag your game executable file into gm8x_fix_lua.exe and follow the instructions displayed on the console screen. Any asked questions simply enter `y` or `n` (yes/no) for your answer according to the question.
+Drag your game executable file into *gm8x_fix_lua.exe* and follow the instructions displayed on the console screen. For any asked questions, answer with `y` or `n` (yes/no).
 
 You can also run it from command line with these options:
-- `-h` show help (showed by default if you run without arguments)
-- `-nb` disable backup.
+- `-h` show help (showed by default if run without arguments)
+- `-s` enable silent mode
+- `-nb` disable backup
 - `-ni` disable input lag patch
 - `-nj` disable joystick patch
 - `-ns` disable scheduler patch
@@ -25,14 +30,13 @@ You can also run it from command line with these options:
 - `-nm` disable memory patch
 - `-nd` disable DirectPlay patch
 
-The command line method are currently useless as there no silent mode option (will be implemented later), as it is supposed to automating patching without further input from the user for applying individual patch.
+Silent mode will not print any information to the console and will apply any available patches. Use the `-n*` option to disable certain patch. This is useful for automating patching.
 
 See the [original project](https://github.com/skyfloogle/gm8x_fix)'s description for further explanation on what this patcher does.
 
 # Building executable
 Run `build.bat` and it will generate `gm8x_fix_lua.exe`.
 
-The tools included in `build` folder are:
-- [squish](https://github.com/LuaDist/squish) - Combine mutiple lua scripts into a single file.
-- [srlua](https://github.com/LuaDist/srlua) - Self-running Lua interpreter.
-- glue - Combine srlua and lua script into executable.
+Tools used for building executable:
+- [squish](http://code.matthewwild.co.uk/squish) - Combine mutiple lua scripts into a single file.
+- [srlua](https://web.tecgraf.puc-rio.br/~lhf/ftp/lua/#srlua) - Building self-running Lua program.
