@@ -57,6 +57,7 @@ local help = concat {
     "        or drag the game file into the patcher.",
     "",
     "  -h    print this help",
+    "  -s    silent mode",
     "  -nb   disable backup",
     "  -ni   disable input lag patch",
     "  -nj   disable joystick patch",
