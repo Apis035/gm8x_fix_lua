@@ -6,6 +6,10 @@ require "patch_types"
 
 local write, wait, exit = io.write, io.read, os.exit
 
+local function concat(t)
+    return table.concat(t, "\n")
+end
+
 local function print(str, ...)
     _G.print(tostring(str):format(...))
 end
@@ -40,15 +44,15 @@ local function patch_exe(file, patches)
     end
 end
 
-local titleBox = table.concat({
+local titleBox = concat {
     "+-----------------------------------------+",
     "| gm8x_fix_lua v0.2 -- Feb 6th 2023       |",
     "| https://github.com/Apis035/gm8x_fix_lua |",
     "+-----------------------------------------+",
     "",
-}, "\n")
+}
 
-local help = table.concat({
+local help = concat {
     "Usage: " .. arg[0] .. " file [options]",
     "        or drag the game file into the patcher.",
     "",
@@ -59,8 +63,9 @@ local help = table.concat({
     "  -ns   disable scheduler patch",
     "  -nr   disable display reset patch",
     "  -nm   disable memory patch",
-    "  -nd   disable DirectPlay Patch"
-}, "\n")
+    "  -nd   disable DirectPlay Patch",
+    "",
+}
 
 --| Argument parsing |----------------------------------------------------------
 
