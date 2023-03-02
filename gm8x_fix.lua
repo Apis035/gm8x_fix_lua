@@ -32,9 +32,9 @@ local function check_patch(file, patches)
         if char ~= patch.newByte  then   patched = false end
         if char ~= patch.origByte then unpatched = false end
     end
-    if   patched then return PatchState.DONE end
-    if unpatched then return PatchState.ABLE end
-                      return PatchState.UNFOUND
+    return patched and PatchState.DONE or
+         unpatched and PatchState.ABLE or
+                       PatchState.UNFOUND
 end
 
 local function patch_exe(file, patches)
@@ -124,8 +124,8 @@ end
 
 -- Disable print and prompt if silent mode is on
 if isSilent then
-    print  = function(...) end
-    prompt = function(...) return true end
+    print  = function() end
+    prompt = function() return true end
 end
 
 --| Reading input file |--------------------------------------------------------
@@ -260,6 +260,6 @@ for _,patch in ipairs(patchList) do
 end
 
 file:close()
-print "All done!"
+print "All done!\n"
 
 exit(0)
